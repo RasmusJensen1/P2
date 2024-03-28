@@ -1,0 +1,97 @@
+/*  Header/layout styling */
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+
+  font-size: 45px;
+  font-weight: bold;
+  top: -15px;
+  left: 35px;
+  position: absolute;
+}
+
+h1 a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+h2 a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+h2 {
+  font-weight: normal;
+  position: absolute;
+}
+
+.remove-styling {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+#grey-line {
+  width: 100%;
+  height: 2px;
+  background-color: #dbdcdcc2;
+  margin: 20px 0;
+  position: absolute;
+  left: 0;
+
+}
+
+#create {
+  right: 515px;
+  top: -8px;
+  font-size: 34px;
+}
+
+#my-budgets {
+  right: 300px;
+  top: -8px;
+  font-size: 34px;
+}
+
+#info {
+  right: 210px;
+  top: -8px;
+  font-size: 34px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.login-button {
+  display: inline-block;
+  padding: 15px 43px;
+  background-color: #3C67F4;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: background-color 0.3s;
+  position: absolute;
+  right: 45px;
+  top: 18px
+}
+
+.login-button:hover {
+  background-color: #134d8a;
+}
+
+.login-button:active {
+  background-color: #0c4888;
+}
+
+.login-button:hover,
+.login-button:active {
+  cursor: pointer;
+}
