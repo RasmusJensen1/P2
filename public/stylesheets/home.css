@@ -1,0 +1,28 @@
+#create-button {
+    padding: 30px 60px;
+    background-color: #3C67F4;
+    border-radius: 20px;
+    position: absolute;
+    right: 600px;
+    top: 200px
+}
+
+#create-button a {
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#create-button:hover {
+    background-color: #134d8a;
+}
+
+#create-button:active {
+    background-color: #0c4888;
+}
+
+#create-button:hover,
+#create-button:active {
+    cursor: pointer;
+}

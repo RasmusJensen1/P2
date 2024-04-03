@@ -4,103 +4,74 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-<<<<<<< HEAD h1 {
+nav a {
+  color: #000000;
+}
 
-  =======nav a {
-    color: #000000;
-  }
+#logo {
+  font-size: 45px;
+  font-weight: bold;
+}
 
-  #logo {
-    >>>>>>>main font-size: 45px;
-    font-weight: bold;
-  }
+* {
+  margin: 0;
+  padding: 0px;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
 
-  * {
-    margin: 0;
-    padding: 0px;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-  }
+nav {
+  background-color: rgb(255, 255, 255);
+  height: 85px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  box-shadow: 2px 2px 4px 0px #dbdcdcc2;
+  margin-bottom: 15px;
+}
 
-  nav {
-    background-color: rgb(255, 255, 255);
-    height: 85px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 30px;
-    box-shadow: 2px 2px 4px 0px #dbdcdcc2;
-    margin-bottom: 15px;
-  }
+nav ul {
+  margin-right: 13px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
 
-  nav ul {
-    margin-right: 13px;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-  }
+nav ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
 
-  nav ul li {
-    display: inline-block;
-    margin: 0 20px;
-  }
+#login-button {
+  padding: 15px 35px;
+  background-color: #3C67F4;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: 0.3s;
+  font-size: 18px;
+  display: block;
 
-  #login-button {
-    padding: 15px 35px;
-    background-color: #3C67F4;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: 0.3s;
-    font-size: 18px;
-    display: block;
+}
 
-  }
+#login-button:hover {
+  background-color: #134d8a;
+}
 
-  #login-button:hover {
-    background-color: #134d8a;
-  }
+#login-button:active {
+  background-color: #0c4888;
+}
 
-  #login-button:active {
-    background-color: #0c4888;
-  }
+#login-button:hover,
+#login-button:active {
+  cursor: pointer;
+}
 
-  #login-button:hover,
-  #login-button:active {
-    cursor: pointer;
-  }
 
-  #create-button {
-    padding: 30px 60px;
-    background-color: #3C67F4;
-    border-radius: 20px;
-    position: absolute;
-    right: 600px;
-    top: 200px
-  }
-
-  #create-button a {
-    color: white;
-    text-decoration: none;
-    font-size: 50px;
-    font-weight: bold;
-  }
-
-  #create-button:hover {
-    background-color: #134d8a;
-  }
-
-  #create-button:active {
-    background-color: #0c4888;
-  }
-
-  #create-button:hover,
-  #create-button:active {
-    cursor: pointer;
-
-    .active-page {
-      font-weight: bold;
-    }
+.active-page {
+  font-weight: bold;
+}
