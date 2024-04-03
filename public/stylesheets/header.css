@@ -35,7 +35,7 @@ nav {
 
 nav ul {
   margin-right: 13px;
-  font-size: 34px;
+  font-size: 30px;
   display: flex;
   align-items: center;
   gap: 25px;
@@ -43,8 +43,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  margin: 0 5px;
-  color: #000000;
+  margin: 0 20px;
 }
 
 #login-button {
@@ -55,6 +54,7 @@ nav ul li {
   border-radius: 50px;
   transition: 0.3s;
   font-size: 18px;
+  display: block;
 
 }
 
