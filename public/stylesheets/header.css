@@ -1,122 +1,106 @@
 /*  Header/layout styling */
 
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-h1 {
+<<<<<<< HEAD h1 {
 
-  font-size: 45px;
-  font-weight: bold;
-  top: -15px;
-  left: 35px;
-  position: absolute;
-}
+  =======nav a {
+    color: #000000;
+  }
 
-h1 a {
-  text-decoration: inherit;
-  color: inherit;
-}
+  #logo {
+    >>>>>>>main font-size: 45px;
+    font-weight: bold;
+  }
 
-h2 a {
-  text-decoration: inherit;
-  color: inherit;
-}
+  * {
+    margin: 0;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
 
-h2 {
-  font-weight: normal;
-  position: absolute;
-}
+  nav {
+    background-color: rgb(255, 255, 255);
+    height: 85px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    box-shadow: 2px 2px 4px 0px #dbdcdcc2;
+    margin-bottom: 15px;
+  }
 
-.remove-styling {
-  text-decoration: inherit;
-  color: inherit;
-}
+  nav ul {
+    margin-right: 13px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
 
-#grey-line {
-  width: 100%;
-  height: 2px;
-  background-color: #dbdcdcc2;
-  margin: 20px 0;
-  position: absolute;
-  left: 0;
+  nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+  }
 
-}
+  #login-button {
+    padding: 15px 35px;
+    background-color: #3C67F4;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-size: 18px;
+    display: block;
 
-#create {
-  right: 515px;
-  top: -8px;
-  font-size: 34px;
-}
+  }
 
-#my-budgets {
-  right: 300px;
-  top: -8px;
-  font-size: 34px;
-}
+  #login-button:hover {
+    background-color: #134d8a;
+  }
 
-#info {
-  right: 210px;
-  top: -8px;
-  font-size: 34px;
-}
+  #login-button:active {
+    background-color: #0c4888;
+  }
 
-.bold {
-  font-weight: bold;
-}
+  #login-button:hover,
+  #login-button:active {
+    cursor: pointer;
+  }
 
-.login-button {
-  display: inline-block;
-  padding: 15px 43px;
-  background-color: #3C67F4;
-  color: white;
-  text-decoration: none;
-  border-radius: 50px;
-  transition: background-color 0.3s;
-  position: absolute;
-  right: 45px;
-  top: 18px
-}
+  #create-button {
+    padding: 30px 60px;
+    background-color: #3C67F4;
+    border-radius: 20px;
+    position: absolute;
+    right: 600px;
+    top: 200px
+  }
 
-.login-button:hover {
-  background-color: #134d8a;
-}
+  #create-button a {
+    color: white;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: bold;
+  }
 
-.login-button:active {
-  background-color: #0c4888;
-}
+  #create-button:hover {
+    background-color: #134d8a;
+  }
 
-.login-button:hover,
-.login-button:active {
-  cursor: pointer;
-}
+  #create-button:active {
+    background-color: #0c4888;
+  }
 
-#create-button {
-  padding: 30px 60px;
-  background-color: #3C67F4;
-  border-radius: 20px;
-  position: absolute;
-  right: 600px;
-  top: 200px
-}
+  #create-button:hover,
+  #create-button:active {
+    cursor: pointer;
 
-#create-button a {
-  color: white;
-  text-decoration: none;
-  font-size: 50px;
-  font-weight: bold;
-}
-
-#create-button:hover {
-  background-color: #134d8a;
-}
-
-#create-button:active {
-  background-color: #0c4888;
-}
-
-#create-button:hover,
-#create-button:active {
-  cursor: pointer;
-}
+    .active-page {
+      font-weight: bold;
+    }
