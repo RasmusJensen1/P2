@@ -25,9 +25,9 @@ router.get("/my-budgets", budget_controller.my_budgets);
 router.get("/login", user_controller.login);
 
 /* GET create-account page */
-router.get("create-account", user_controller.create_account);
+router.get("/create-account", user_controller.create_account);
 
 /* GET budget instance page (Not implemented) */
-router.get("budgetinstance", budgetinstance_controller.budget_instance);
+router.get("/budgetinstance", budgetinstance_controller.budget_instance);
 
 module.exports = router;

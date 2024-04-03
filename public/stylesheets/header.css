@@ -2,15 +2,13 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin: 0;
 }
 
-a {
+nav a {
   color: #000000;
 }
 
-label.logo {
-
+#logo {
   font-size: 45px;
   font-weight: bold;
 }
@@ -36,7 +34,6 @@ nav {
 }
 
 nav ul {
-  float: right;
   margin-right: 13px;
   font-size: 34px;
   display: flex;
@@ -46,30 +43,34 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  line-height: 80px;
   margin: 0 5px;
+  color: #000000;
 }
 
-.login-button {
+#login-button {
   padding: 15px 35px;
   background-color: #3C67F4;
   color: white;
   text-decoration: none;
   border-radius: 50px;
-  transition: background-color 0.3s;
+  transition: 0.3s;
   font-size: 18px;
 
 }
 
-.login-button:hover {
+#login-button:hover {
   background-color: #134d8a;
 }
 
-.login-button:active {
+#login-button:active {
   background-color: #0c4888;
 }
 
-.login-button:hover,
-.login-button:active {
+#login-button:hover,
+#login-button:active {
   cursor: pointer;
+}
+
+.active-page {
+  font-weight: bold;
 }
