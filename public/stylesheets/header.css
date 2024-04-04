@@ -46,16 +46,14 @@ nav ul li {
   margin: 0 20px;
 }
 
-#login-button {
+.login-button {
   padding: 15px 35px;
   background-color: #3C67F4;
   color: white;
   text-decoration: none;
   border-radius: 50px;
-  transition: 0.3s;
   font-size: 18px;
   display: block;
-
 }
 
 /* Der er nødt til at være en ".butt" uden ":hover" hvis man skal lave en class, ellers virker det ikke
@@ -63,11 +61,8 @@ Source: Trust me bro*/
 .butt {
   color: white;
   text-decoration: none;
-  font-size: 85px;
-  font-weight: bold;
-  background-color: #3C67F4;
-  padding: 40px 55px;
   border-radius: 36px;
+  transition: 0.3s;
 }
 
 /*-------------------------------------*/
