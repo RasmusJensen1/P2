@@ -22,8 +22,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-
-
 mongoose.set("strictQuery", false);
 
 const mongoDB = "mongodb+srv://shafesadiq03:kiyTUWgW4lme6WJV@cluster0.5iseri8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -36,7 +34,6 @@ async function main() {
 const connection = mongoose.connection
 
 connection.once("open", () => console.log('someone connected!'))
-
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
