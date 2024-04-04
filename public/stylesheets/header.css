@@ -58,16 +58,29 @@ nav ul li {
 
 }
 
-#login-button:hover {
+/* Der er nødt til at være en ".butt" uden ":hover" hvis man skal lave en class, ellers virker det ikke
+Source: Trust me bro*/
+.butt {
+  color: white;
+  text-decoration: none;
+  font-size: 85px;
+  font-weight: bold;
+  background-color: #3C67F4;
+  padding: 40px 55px;
+  border-radius: 36px;
+}
+
+/*-------------------------------------*/
+.butt:hover {
   background-color: #134d8a;
 }
 
-#login-button:active {
+.butt:active {
   background-color: #0c4888;
 }
 
-#login-button:hover,
-#login-button:active {
+.butt:hover,
+.butt:active {
   cursor: pointer;
 }
 

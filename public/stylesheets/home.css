@@ -27,20 +27,3 @@
     border-radius: 20px;
     border: 2px solid black;
 }
-
-#have-budget-button:hover {
-    background-color: #e7e7e8;
-}
-
-#create-button:hover {
-    background-color: #134d8a;
-}
-
-#create-button:active {
-    background-color: #0c4888;
-}
-
-#create-button:hover,
-#create-button:active {
-    cursor: pointer;
-}
