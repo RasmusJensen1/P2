@@ -10,7 +10,6 @@ const budgetSchema = new Schema({
     date: {
         type: Number,
         required: true,
-        required: true
     },
     totalIncome: {
         type: Number,
@@ -18,6 +17,18 @@ const budgetSchema = new Schema({
     },
     totalExpense: {
         type: Number,
+    },
+
+    expenses: [{
+        expenseName: String,
+        part: Number
+    }],
+
+    userId: {
+        type: Schema.ObjectId,
         required: true
     }
 });
+const Budget = mongoose.model('Budget', budgetSchema);
+
+module.exports = Budget;
