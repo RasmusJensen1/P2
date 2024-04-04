@@ -1,0 +1,24 @@
+.create-button-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    gap: 25px;
+}
+
+.create-button {
+    font-size: 85px;
+    font-weight: bold;
+    background-color: #3C67F4;
+    padding: 40px 55px;
+}
+
+.have-budget-button {
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #ffffff;
+    padding: 35px 35px;
+    border: 2px solid black;
+}

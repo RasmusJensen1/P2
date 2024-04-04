@@ -46,30 +46,39 @@ nav ul li {
   margin: 0 20px;
 }
 
-#login-button {
+.login-button {
   padding: 15px 35px;
   background-color: #3C67F4;
   color: white;
   text-decoration: none;
   border-radius: 50px;
-  transition: 0.3s;
   font-size: 18px;
   display: block;
-
 }
 
-#login-button:hover {
-  background-color: #134d8a;
+/* Der er nødt til at være en ".butt" uden ":hover" hvis man skal lave en class, ellers virker det ikke
+Source: Trust me bro*/
+.butt {
+  color: white;
+  text-decoration: none;
+  border-radius: 36px;
+  transition: 0.2s;
 }
 
-#login-button:active {
-  background-color: #0c4888;
+/*-------------------------------------*/
+.butt:hover {
+  filter: brightness(80%);
 }
 
-#login-button:hover,
-#login-button:active {
+.butt:active {
+  filter: brightness(80%);
+}
+
+.butt:hover,
+.butt:active {
   cursor: pointer;
 }
+
 
 .active-page {
   font-weight: bold;
