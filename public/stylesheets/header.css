@@ -62,16 +62,16 @@ Source: Trust me bro*/
   color: white;
   text-decoration: none;
   border-radius: 36px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 /*-------------------------------------*/
 .butt:hover {
-  background-color: #134d8a;
+  filter: brightness(80%);
 }
 
 .butt:active {
-  background-color: #0c4888;
+  filter: brightness(80%);
 }
 
 .butt:hover,
