@@ -1,18 +1,44 @@
 <div class="container">
   <div class="wrapper">
-    <form action="/" method="post" name="Login_Form" class="form-signin">
-      <h3 class="form-signin-heading">Login</h3>
+    <form method="post" name="Login_Form" class="form-signin">
 
+      <h3 class="form-signin-heading">
+        <%= title %>
+      </h3>
+
+
+
+      <% if (title==='Login' ) { %>
+        <h3 class="input-text">Email</h4>
+          <input type="text" class="form-control" name="email" required="" autofocus="" />
+          <hr>
+
+          <h3 class="input-text">Password</h4>
+            <input type="password" class="form-control" name="password" required="" />
+            <hr>
+
+            <button class="butt" id="login-btn" name="Submit" value="Login" type="Submit">Login</button>
+            <p class="or-sign-up">Or <strong><a id="sign-up-text" href="/sign-up">sign up</a></strong></p>
+    </form>
+
+    <% } else { %>
       <h3 class="input-text">Email</h4>
-        <input type="text" class="form-control" name="email" required="" autofocus="" />
+        <input type="text" class="form-control" name="newEmail" required="" autofocus="" />
         <hr>
 
         <h3 class="input-text">Password</h4>
-          <input type="password" class="form-control" name="password" required="" />
+          <input type="password" class="form-control" name="newPassword" required="" />
           <hr>
 
-          <button class="login-btn" name="Submit" value="Login" type="Submit">Login</button>
-          <p class="or-sign-up">Or <strong>sign up</strong></p>
-    </form>
+          <h3 class="input-text">Repeat password</h4>
+            <input type="password" class="form-control" name="repeatPassword" required="" />
+            <hr>
+
+            <button class="butt" id="login-btn" name="Submit" value="Login" type="Submit">Create
+              account</button>
+            </form>
+
+            <% } %>
+
   </div>
 </div>
