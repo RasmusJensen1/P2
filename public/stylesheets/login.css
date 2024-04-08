@@ -1,0 +1,25 @@
+#login-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    gap: 25px;
+}
+
+
+
+#login {
+    font-size: 85px;
+    font-weight: bold;
+    background-color: #3C67F4;
+    padding: 340px 200px;
+}
+
+#login-header {
+    display: ;
+    font-size: 20px;
+    font-weight: bold;
+    align-items: top;
+    text-align: top;
+}
