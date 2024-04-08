@@ -5,14 +5,18 @@
 
 .form-signin {
     max-width: 450px;
-    padding: 20px 25px 66px;
+    padding: 30px 55px 66px;
     margin: 0 auto;
     background-color: #3C67F4;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
 
+}
+
+hr {
+    margin-bottom: 70px;
 }
 
 .form-signin-heading {
@@ -31,15 +35,15 @@
 }
 
 .login-btn {
-    align-items: center;
     margin-top: 20px;
+    margin-left: 100px;
     width: 140px;
     height: 35px;
     background-color: white;
     border-radius: 15px;
-    margin-left: 45px;
-    margin-bottom: 7px;
+    margin-bottom: 40px;
     border: none;
+    font-size: 18px;
 }
 
 .input-text {
@@ -53,6 +57,7 @@
     color: white;
     font-size: 20px;
     text-align: center;
+    margin-bottom: 140px;
 }
 
 input[type="text"] {
@@ -64,9 +69,9 @@ input[type="text"] {
 }
 
 input[type="password"] {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border: none;
-    background-color: #3C67F4;
+    background-color: #3C67F4
 }
