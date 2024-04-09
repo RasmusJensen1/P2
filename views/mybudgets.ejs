@@ -1,1 +1,42 @@
 <!--Skal laves-->
+<main>
+    <div class="top-container">
+        <button class="butt butt-primary">Delete Selected</button>
+        <button class="butt butt-primary">Upload (icon)</button>
+        <div class="tool-tip">
+            ?
+        </div>
+    </div>
+    <div class="budgets-container">
+        <table>
+            <thead>
+            <tr>
+                <th>Nr.</th>
+                <th>Budget name</th>
+                <th>Total</th>
+                <th>Style</th>
+                <th>Date last accessed</th>
+                <th>Date created</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (let i = 0; i < budgets.length; i++) { %>
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                         1
+                    </td>
+                    <td>January</td>
+                    <td>10.000kr</td>
+                    <td>Basic</td>   
+                    <td>01/02/1901</td>   
+                    <td>01/02/1900</td>   
+                    <td>edit</td>
+            <% } %>
+            </tbody>
+        </table>
+
+    </div>
+    
+</main>
