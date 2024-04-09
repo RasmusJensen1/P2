@@ -6,10 +6,12 @@ var logger = require("morgan");
 var expressLayouts = require("express-ejs-layouts");
 var bodyParser = require("body-parser"); // require body form data???? (til email og pasword)
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+const mongoose = require("mongoose");
 
-var app = express();
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -22,6 +24,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+mongoose.set("strictQuery", false);
+
+const mongoDB =
+  "mongodb+srv://shafesadiq03:kiyTUWgW4lme6WJV@cluster0.5iseri8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
+const connection = mongoose.connection;
+
+connection.once("open", () => console.log("someone connected!"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
