@@ -1,0 +1,25 @@
+.top-container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    margin: 0px 20px;
+}
+
+.budgets-container {
+    margin: 0 auto;
+    font-size: xx-large;
+    padding: 25px 40px;
+
+}
+
+.budgets-container > table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+.budgets-container > table > thead > tr > th {
+    border-bottom: 3px solid black;
+    padding-bottom: 10px;
+}
