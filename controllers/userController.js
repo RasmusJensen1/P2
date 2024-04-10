@@ -8,15 +8,19 @@ exports.login_get = asyncHandler(async (req, res, next) => {
   });
 });
 
-exports.login_post = asyncHandler(async (req, res, next) => {
-  var data = {
-    username: req.body.username,
-    password: req.body.password,
-  };
-  console.log(data);
+exports.login_post = [
+  // Add login error handling
 
-  res.redirect("my-budgets");
-});
+  asyncHandler(async (req, res, next) => {
+    var data = {
+      username: req.body.username,
+      password: req.body.password,
+    };
+    console.log(data);
+
+    res.redirect("my-budgets");
+  }),
+];
 
 exports.signup_get = asyncHandler(async (req, res, next) => {
   res.render("login", {
@@ -57,19 +61,18 @@ exports.signup_post = [
       repeatPassword: req.body.repeatPassword,
     };
 
+    console.log(newData);
+
+    if (newData.newPassword !== newData.repeatPassword) {
+      errors.errors.push({ msg: "Passwords do not match" });
+    }
+
     if (!errors.isEmpty()) {
       res.render("login", {
         title: "Sign up",
         errors: errors.array(),
       });
     }
-
-    console.log(newData);
-
-    if (newData.newPassword === newData.repeatPassword) {
-      res.redirect("login");
-    } else {
-      res.redirect("sign-up");
-    }
+    res.redirect("login");
   }),
 ];

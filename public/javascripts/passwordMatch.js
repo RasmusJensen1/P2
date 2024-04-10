@@ -1,9 +1,12 @@
-let button = document.getElementById("create-account-btn");
+// document
+//   .getElementById("create-account-btn")
+//   .addEventListener("click", function () {
+//     const newUsername = document.getElementById("newUsername").value;
+//     const newPassword = document.getElementById("newPassword").value;
+//     const repeatPassword = document.getElementById("repeatPassword").value;
 
-const newPassword = document.getElementById("newPassword");
-const repeatPassword = document.getElementById("repeatPassword");
+//     console.log("New Username:", newUsername);
+//     console.log("New Password:", newPassword);
+//     console.log("Repeat Password:", repeatPassword);
 
-button.addEventListener("click", () => {
-  console.log("New Password:", newPassword);
-  console.log("Repeat Password:", repeatPassword);
-});
+//   });
