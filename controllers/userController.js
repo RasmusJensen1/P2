@@ -1,14 +1,16 @@
 const asyncHandler = require("express-async-handler");
+const { body, validationResult } = require("express-validator");
 
 exports.login_get = asyncHandler(async (req, res, next) => {
   res.render("login", {
     title: "Login",
+    errors: undefined,
   });
 });
 
 exports.login_post = asyncHandler(async (req, res, next) => {
   var data = {
-    email: req.body.email,
+    username: req.body.username,
     password: req.body.password,
   };
   console.log(data);
@@ -16,30 +18,58 @@ exports.login_post = asyncHandler(async (req, res, next) => {
   res.redirect("my-budgets");
 });
 
-// // Tjek for at se om det virker
-// console.log("Username:", email);
-// console.log("Password:", password);
-// // Sender til bruger email og kode virker
-// res.send("Form submitted successfully!");
-
 exports.signup_get = asyncHandler(async (req, res, next) => {
   res.render("login", {
     title: "Sign up",
+    errors: undefined,
   });
 });
 
-exports.signup_post = asyncHandler(async (req, res, next) => {
-  var newData = {
-    newEmail: req.body.newEmail,
-    newPassword: req.body.newPassword,
-    repeatPassword: req.body.repeatPassword,
-  };
+exports.signup_post = [
+  body("newUsername", "Username must be atleast 4 and max 20 characters")
+    .trim()
+    .isLength({ min: 4 })
+    .isLength({ max: 20 })
+    .escape(),
 
-  console.log(newData);
+  body("newUsername", "Username must not contain whitespaces")
+    .trim()
+    .custom((value) => !/\s/.test(value))
+    .escape(),
 
-  if (newData.newPassword === newData.repeatPassword) {
-    res.redirect("login");
-  } else {
-    res.redirect("sign-up");
-  }
-});
+  body("newPassword", "Password must be atleast 8 and max 20 characters")
+    .trim()
+    .isLength({ min: 8 })
+    .isLength({ max: 20 })
+    .escape(),
+
+  body("newPassword", "Password must not contain whitespaces")
+    .trim()
+    .custom((value) => !/\s/.test(value))
+    .escape(),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    var newData = {
+      newUsername: req.body.newUsername,
+      newPassword: req.body.newPassword,
+      repeatPassword: req.body.repeatPassword,
+    };
+
+    if (!errors.isEmpty()) {
+      res.render("login", {
+        title: "Sign up",
+        errors: errors.array(),
+      });
+    }
+
+    console.log(newData);
+
+    if (newData.newPassword === newData.repeatPassword) {
+      res.redirect("login");
+    } else {
+      res.redirect("sign-up");
+    }
+  }),
+];

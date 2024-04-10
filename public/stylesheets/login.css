@@ -13,10 +13,18 @@
     flex-direction: column;
     gap: 0px;
 
+
+}
+
+.error-message {
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+
 }
 
 hr {
-    margin-bottom: 70px;
+    margin-bottom: 15px;
 }
 
 .form-signin-heading {
@@ -47,11 +55,25 @@ hr {
     font-size: 18px;
 }
 
+#create-account-btn {
+    margin-top: 20px;
+    margin-left: 100px;
+    width: 140px;
+    height: 35px;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: none;
+    font-size: 18px;
+}
+
 .input-text {
     color: white;
     font-weight: normal;
     font-size: 25px;
     margin-bottom: 10px;
+    margin-top: 50px;
 
 }
 

@@ -8,13 +8,13 @@
     "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
     "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^7.0.1",
     "http-errors": "~1.6.3",
     "mongoose": "^8.2.4",
     "morgan": "~1.9.1"
