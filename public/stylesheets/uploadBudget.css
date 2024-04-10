@@ -1,85 +1,45 @@
-/*  Header/layout styling */
-
-body {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-nav a {
-    color: #000000;
-}
-
-#logo {
-    font-size: 45px;
-    font-weight: bold;
-}
-
-* {
-    margin: 0;
-    padding: 0px;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-}
-
-nav {
-    background-color: rgb(255, 255, 255);
-    height: 85px;
-    width: 100%;
-    display: flex;
+#form-container{
     align-items: center;
-    justify-content: space-between;
-    padding: 30px;
-    box-shadow: 2px 2px 4px 0px #dbdcdcc2;
-    margin-bottom: 15px;
-}
-
-nav ul {
-    margin-right: 13px;
-    font-size: 30px;
+    justify-content: center;
     display: flex;
-    align-items: center;
-    gap: 25px;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 25px;
+}
+#form-header{
+    margin-bottom: 40px;
+    font-size: 60px;
+
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 20px;
+hr {
+    border: none;
+    height: 2px;
+    background-color: black;
+    margin-bottom: 20px;
+    margin-top: 5px;
+
 }
 
-.login-button {
-    padding: 15px 35px;
-    background-color: #3C67F4;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-size: 18px;
-    display: block;
+input[type="text"] {
+    border: none;
+    width: 450px;
 }
 
-/* Der er nødt til at være en ".butt" uden ":hover" hvis man skal lave en class, ellers virker det ikke
-  Source: Trust me bro*/
-.butt {
-    color: white;
-    text-decoration: none;
-    border-radius: 36px;
-    transition: 0.2s;
+.form-input {
+    vertical-align: i;
 }
 
-/*-------------------------------------*/
-.butt:hover {
-    filter: brightness(80%);
+#form-template select {
+    width: 450px;
+    height: 50px;
+    border: 1px solid #040404;
+    border-radius: 5px;
+    margin-top: 20px;
+   
 }
 
-.butt:active {
-    filter: brightness(80%);
-}
-
-.butt:hover,
-.butt:active {
-    cursor: pointer;
-}
-
-
-.active-page {
-    font-weight: bold;
+.upload-button{
+    height: 20px;
+    width: 20px;
 }

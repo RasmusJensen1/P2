@@ -1,0 +1,36 @@
+<div id="form-container">
+  <h1 id="form-header">Create Budget</h1>
+
+  <div id="style-name-budget">
+    <div>
+
+      <form method="post" for="name">
+        <h3 class="form-input">Name:
+          <div class="tool-tip">?</div>
+        </h3>
+        <br>
+        <input type="text" id="name" name="name" class="form-input" placeholder="">
+        <hr>
+    </div>
+
+    <div id="form-template">
+      <label for="Basic template">
+        <h3>Budget style:</h3>
+      </label>
+      <select>
+        <option>Basic template</option>
+        <option>Other templates</option>
+      </select>
+
+    </div>
+  </div>
+
+
+  <div>
+    <label<h3>Upload Budget:</h3> </label>
+      <label for="fileToUpload" class="upload-button"><img src="/images/upload.png" alt="Sky image"/></label>
+      <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;">
+      <input type="submit" name="submit-button" value="Upload" style="display: none;">
+  </div>
+
+</div>
