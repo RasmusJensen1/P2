@@ -57,13 +57,12 @@ nav ul li {
 }
 
 
-/* Der er nødt til at være en ".butt" uden ":hover" hvis man skal lave en class, ellers virker det ikke
-Source: Trust me bro*/
 .butt {
   color: white;
   text-decoration: none;
   transition: 0.2s;
   border: none;
+  border-radius: 24px;
 }
 
 .butt-primary {
