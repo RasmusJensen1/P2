@@ -10,9 +10,9 @@ exports.login_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.login_post = [
-  body("username", "Forgot to input username")
+  body("username", "Username cannot be longer than 20 characters")
     .trim()
-    .isLength({ min: 1 })
+    .isLength({ max: 20 })
     .escape(),
 
   asyncHandler(async (req, res, next) => {
