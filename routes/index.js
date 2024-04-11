@@ -18,7 +18,7 @@ router.get("/info", index_controller.info);
 /* GET create-budget page */
 router.get("/create-budget", budget_controller.create_budget_get);
 
-/* Post create-budget page */
+/* POST create-budget page */
 router.post("/create-budget", budget_controller.create_budget_post);
 
 /* GET my-budgets page */
