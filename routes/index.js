@@ -30,7 +30,7 @@ router.post("/login", user_controller.login_post);
 /* GET sign up page */
 router.get("/sign-up", user_controller.signup_get);
 
-// Post signup information
+/* POST signup */
 router.post("/sign-up", user_controller.signup_post);
 
 /* GET budget instance page (Not implemented) */

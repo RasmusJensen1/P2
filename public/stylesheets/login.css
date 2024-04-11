@@ -12,15 +12,12 @@
     display: flex;
     flex-direction: column;
     gap: 0px;
-
-
 }
 
 .error-message {
     font-size: 17px;
     font-weight: bold;
     color: rgb(255, 255, 255);
-
 }
 
 hr {
