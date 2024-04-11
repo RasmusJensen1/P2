@@ -4,6 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
+
 const mongoose = require("mongoose");
 
 const indexRouter = require("./routes/index");
@@ -24,16 +25,17 @@ app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.set("strictQuery", false);
 
-const mongoDB = "mongodb+srv://shafesadiq03:kiyTUWgW4lme6WJV@cluster0.5iseri8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB =
+  "mongodb+srv://shafesadiq03:kiyTUWgW4lme6WJV@cluster0.5iseri8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
 }
 
-const connection = mongoose.connection
+const connection = mongoose.connection;
 
-connection.once("open", () => console.log('someone connected!'))
+connection.once("open", () => console.log("Connected to MongoDB database"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

@@ -1,18 +1,18 @@
 const asyncHandler = require("express-async-handler");
 
-exports.my_budgets =  (req, res) => {
+exports.my_budgets = (req, res) => {
   res.render("mybudgets", {
-    title: "my_budgets",
-    budgets: [1,2,3,4,5],
+    title: "My_budgets",
+    budgets: [1, 2, 3, 4, 5],
   });
 };
 
 exports.create_budget_get = asyncHandler(async (req, res, next) => {
-  res.render("uploadBudget", {
-    title: "create_budget",
+  res.render("createbudget", {
+    title: "Create_budget",
   });
 });
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
-  res.redirect("/my-budgets");
+  res.redirect("my-budgets");
 }); 
