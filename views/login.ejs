@@ -1,2 +1,52 @@
-<!--Skal laves-->
-<h3>HEJSA</h3>
+<div class="container">
+  <div class="wrapper">
+    <form method="post" name="Login_Form" class="form-signin">
+
+      <h3 class="form-signin-heading">
+        <%= title %>
+      </h3>
+
+      <% if (errors) { %>
+      <% errors.forEach(function(error) { %>
+      <p class="error-message">
+        <%= error.msg %>
+      </p>
+      <% }); %>
+
+      <% } %>
+      <% if (title==='Login' ) { %>
+      <h3 class="input-text">Username</h4>
+        <input type="text" class="form-control" name="username" required="" autofocus="" />
+        <hr>
+
+        <h3 class="input-text">Password</h4>
+          <input type="password" class="form-control" name="password" required="" />
+          <hr>
+
+          <button class="butt" id="login-btn" name="Submit" value="Login" type="Submit">Login</button>
+          <p class="or-sign-up">Or <strong><a id="sign-up-text" href="/sign-up">sign up</a></strong></p>
+
+    </form>
+
+    <% } else { %>
+    <h3 class="input-text">New username</h4>
+      <input id="newUsername" type="text" class="form-control" name="newUsername" required="" autofocus="" />
+      <hr>
+
+      <h3 class="input-text">Password</h4>
+        <input id="newPassword" type="password" class="form-control" name="newPassword" required="" />
+        <hr>
+
+        <h3 class="input-text">Repeat password</h4>
+          <input id="repeatPassword" type="password" class="form-control" name="repeatPassword" required="" />
+          <hr>
+
+          <button class="butt" id="create-account-btn" name="Submit" value="Login" type="Submit">Create
+            account</button>
+
+          </form>
+
+          <% } %>
+
+  </div>
+</div>
