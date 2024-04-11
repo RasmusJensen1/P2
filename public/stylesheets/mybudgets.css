@@ -1,4 +1,4 @@
-.top-container{
+.top-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -13,13 +13,38 @@
 
 }
 
-.budgets-container > table {
+.budgets-container>table {
     border-collapse: collapse;
     width: 100%;
     text-align: left;
 }
 
-.budgets-container > table > thead > tr > th {
+.budgets-container>table>thead>tr>th {
     border-bottom: 3px solid black;
     padding-bottom: 10px;
+}
+
+
+
+.tool-tip #tool-tip-text-mybudgets {
+    visibility: hidden;
+    width: 120px;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    border: 2px solid;
+    border-color: black;
+
+    position: absolute;
+    top: 85px;
+    z-index: 1;
+
+
+    left: 91.5%
+}
+
+.tool-tip:hover #tool-tip-text-mybudgets {
+    visibility: visible;
 }
