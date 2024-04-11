@@ -1,6 +1,5 @@
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
-const User = require("../models/user.model");
 
 exports.login_get = asyncHandler(async (req, res, next) => {
   res.render("login", {
@@ -44,7 +43,7 @@ exports.signup_post = [
 
   body("newPassword", "Password must be atleast 8 and max 20 characters")
     .trim()
-    .isLength({ min: 8 })
+    .isLength({ min: 10 })
     .isLength({ max: 20 })
     .escape(),
 
@@ -74,6 +73,7 @@ exports.signup_post = [
         errors: errors.array(),
       });
     }
-    res.redirect("login");
+
+    res.redirect("/login");
   }),
 ];
