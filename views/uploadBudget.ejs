@@ -4,8 +4,9 @@
   <div id="style-name-budget">
     <div>
 
+
       <form method="post" for="name">
-        <h3 class="form-input">Name:
+        <h3 class="form-input">Name
           <div class="tool-tip">?</div>
         </h3>
         <br>
@@ -15,7 +16,9 @@
 
     <div id="form-template">
       <label for="Basic template">
-        <h3>Budget style:</h3>
+        <h3 class="form-input">Budget style
+          <div class="tool-tip">?</div>
+        </h3>
       </label>
       <select>
         <option>Basic template</option>
@@ -26,11 +29,23 @@
   </div>
 
 
-  <div>
-    <label<h3>Upload Budget:</h3> </label>
-      <label for="fileToUpload" class="upload-button"><img src="/images/upload.png" alt="Sky image"/></label>
+  <div id="sky-upload">
+    <label<h3 class="form-input">Upload Budget:</h3> </label>
+      <label for="fileToUpload" class="upload-button"><img src="/images/upload.png" alt="Sky image" id="sky-image" /></label>
       <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;">
       <input type="submit" name="submit-button" value="Upload" style="display: none;">
   </div>
 
+  <script>
+    document.querySelector('.upload-button').addEventListener('click', function() {
+      document.getElementById('fileToUpload').click();
+    });
+  </script>
+
+  <button class="create-button" id="create-butt" name="Submit" type="Submit">
+    <h1 class="form-create">Create
+    </h1>
+  </button>
+
+  </form>
 </div>
