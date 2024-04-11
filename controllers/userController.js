@@ -95,17 +95,24 @@ exports.signup_post = [
       errors.errors.push({ msg: "Username already taken" });
     }
 
+    if (errors.isEmpty()) {
+      try {
+        await User.create({
+          username: newData.newUsername,
+          password: newData.newPassword,
+        });
+      } catch (error) {
+        console.error("Error creating user:", error);
+        errors.errors.push({ msg: "Error adding user to database" });
+      }
+    }
+
     if (!errors.isEmpty()) {
       res.render("login", {
         title: "Sign up",
         errors: errors.array(),
       });
     } else {
-      await User.create({
-        username: newData.newUsername,
-        password: newData.newPassword,
-      });
-
       res.redirect("/login");
     }
   }),
