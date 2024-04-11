@@ -10,18 +10,37 @@ exports.login_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.login_post = [
-  // Add login error handling
+  body("username", "Forgot to input username")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
 
   asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
     var data = {
       username: req.body.username,
       password: req.body.password,
     };
+
     console.log(data);
 
-    var user_login = await User.find({ username: data.username });
+    const user_login = await User.findOne({ username: data.username });
 
-    res.redirect("my-budgets");
+    if (!user_login) {
+      errors.errors.push({ msg: "Username does not exist" });
+    } else if (user_login.password !== data.password) {
+      errors.errors.push({ msg: "Incorrect password" });
+    }
+
+    if (!errors.isEmpty()) {
+      res.render("login", {
+        title: "Login",
+        errors: errors.array(),
+      });
+    } else {
+      res.redirect("my-budgets");
+    }
   }),
 ];
 
@@ -70,18 +89,24 @@ exports.signup_post = [
       errors.errors.push({ msg: "Passwords do not match" });
     }
 
+    const existingUser = await User.findOne({ username: newData.newUsername });
+
+    if (existingUser) {
+      errors.errors.push({ msg: "Username already taken" });
+    }
+
     if (!errors.isEmpty()) {
       res.render("login", {
         title: "Sign up",
         errors: errors.array(),
       });
+    } else {
+      await User.create({
+        username: newData.newUsername,
+        password: newData.newPassword,
+      });
+
+      res.redirect("/login");
     }
-
-    await User.create({
-      username: newData.newUsername,
-      password: newData.newPassword,
-    });
-
-    res.redirect("/login");
   }),
 ];
