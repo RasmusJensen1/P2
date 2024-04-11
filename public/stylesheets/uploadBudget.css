@@ -1,10 +1,12 @@
-#form-container {
+#UploadBudgetContainer {
     align-items: center;
     justify-content: center;
     display: flex;
-    flex-direction: column;
+}
+
+#form-container {
     background-color: white;
-    margin-top: 100px;
+    max-width: 50%;
 }
 
 #form-header {
@@ -46,24 +48,19 @@ input[type="text"] {
 }
 
 
-#sky-upload {
-    display: flex;
-    =======margin-top: 20px;
-    cursor: pointer;
-}
-
 #sky-image {
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
     cursor: pointer;
 }
 
 #sky-upload {
     display: flex;
     align-items: center;
-    width: 20px;
+    width: 55%;
     height: auto;
-    justify-content: center;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
 .create-button {
