@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
+const User = require("../models/user.model");
 
 exports.login_get = asyncHandler(async (req, res, next) => {
   res.render("login", {
@@ -17,6 +18,8 @@ exports.login_post = [
       password: req.body.password,
     };
     console.log(data);
+
+    var user_login = await User.find({ username: data.username });
 
     res.redirect("my-budgets");
   }),
@@ -41,7 +44,7 @@ exports.signup_post = [
     .custom((value) => !/\s/.test(value))
     .escape(),
 
-  body("newPassword", "Password must be atleast 8 and max 20 characters")
+  body("newPassword", "Password must be atleast 10 and max 20 characters")
     .trim()
     .isLength({ min: 10 })
     .isLength({ max: 20 })
@@ -73,6 +76,11 @@ exports.signup_post = [
         errors: errors.array(),
       });
     }
+
+    await User.create({
+      username: newData.newUsername,
+      password: newData.newPassword,
+    });
 
     res.redirect("/login");
   }),
