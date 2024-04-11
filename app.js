@@ -35,7 +35,7 @@ async function main() {
 
 const connection = mongoose.connection;
 
-connection.once("open", () => console.log("someone connected!"));
+connection.once("open", () => console.log("Connected to MongoDB database"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
