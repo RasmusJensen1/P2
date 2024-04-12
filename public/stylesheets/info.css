@@ -1,9 +1,5 @@
 /* style for tekst */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+
   .container {
     max-width: 1200px;
     margin: 20px auto;
@@ -30,7 +26,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    position: relative; /* Add this to make the image positioning relative to the body */
+    position: relative; 
 }
 
 .content {
@@ -38,14 +34,6 @@
     padding: 20px;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative; /* Add this to make the image positioning relative to the body */
-}
 
 .content {
     flex: 1;
@@ -59,9 +47,12 @@ body {
     bottom: 0;
     text-align: center;
     margin-top: auto;
-    background-image: url('/images/infopicture.jpeg'); /* Add the path to your image */
-    background-size: cover; /* Stretch the image to cover the entire container */
-    background-position: center; /* Center the image horizontally and vertically */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    height: 300px; /* Adjust the height of the image as needed */
+    background-image: url('/images/infopicture.jpeg'); 
+    background-size: cover;
+    background-position: center; 
+    height: 300px; 
+}
+
+h2 {
+    font-size: 35px; 
 }
