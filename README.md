@@ -18,5 +18,4 @@ MongoDB:
 MongoDB is used for data storage. It handles data types like user budgets and account information.
 
 How to install and run the project:
-bka blasdasd
-adasd
+NPM NPM NPM NPM
