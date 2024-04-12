@@ -25,6 +25,7 @@ hr {
 input[type="text"] {
     border: none;
     width: 450px;
+    outline: none;
 }
 
 .form-input {
