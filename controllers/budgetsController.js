@@ -8,7 +8,7 @@ exports.my_budgets = (req, res) => {
 };
 
 exports.create_budget_get = asyncHandler(async (req, res, next) => {
-  res.render("uploadBudget", {
+  res.render("createbudget", {
     title: "Create_budget",
   });
 });
