@@ -19,3 +19,6 @@ MongoDB is used for data storage. It handles data types like user budgets and ac
 
 How to install and run the project:
 NPM NPM NPM NPM
+NPM drik
+NPM hæld
+NPM SUUUUG DEN LAJS
