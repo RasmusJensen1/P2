@@ -5,16 +5,19 @@
     margin: 20px auto;
     padding: 0 20px;
   }
+
   .header {
     text-align: center;
     margin-bottom: 20px;
   }
+
   .columns {
     display: flex;
     justify-content: space-between;
   }
+  
   .column {
-    width: 48%;
+    width: 50%;
   }
 
 
@@ -29,16 +32,6 @@
     position: relative; 
 }
 
-.content {
-    flex: 1;
-    padding: 20px;
-}
-
-
-.content {
-    flex: 1;
-    padding: 20px;
-}
 
 .bottom-image {
      
@@ -50,7 +43,7 @@
     background-image: url('/images/infopicture.jpeg'); 
     background-size: cover;
     background-position: center; 
-    height: 300px; 
+    height: 300px;  
 }
 
 h2 {
