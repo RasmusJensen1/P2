@@ -18,7 +18,16 @@ Mongoose: Mongoose is interacting with MongoDB, our chosen database solution. It
 MongoDB: MongoDB is our data storage system. It is handling various types of data, such as user budgets and account information, in a scalable and efficient manner.
 
 How to install and run the project:
-NPM
+Install Node.js either trough the website or trough terminal
+
+Clone the repository running the below in your terminal:
+git clone https://github.com/RasmusJensen1/P2.git
+
+Intall Node Package Manager (npm) to get the projects dependicies listed in the package.json file that is in the project by running the below in your terminal:
+npm install
+
+To run the project now utalize the followingen script:
+npm run serverstart
 
 Credits:
 Albert Hansen - Aalborg university, Copenhagen.
