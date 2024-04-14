@@ -7,18 +7,23 @@ Project Description and goal:
 Our project addresses the financial challenges faced by young adults, primarily stemming from factors such as a lack of information and not utalizing finiancial tools such as a budget. We've developed a website featuring a user-friendly budgeting tool tailored to this demographic. The site has a simple design and intuitive interface, enabling users to create and manage budgets with interactive charts and sliders. Additionally, the website includes an informative section featuring a brief glossary of financial terms and guidance on creating a good budget. Our goal is to empower young adults to manage their finances effectively and avoid debt sometimes leading to health issues such as stress etc.
 
 Techstack:
-Node.js: Allows running JavaScript on the server side, facilitating backend development. Its asynchronous programming support enhances web application development.
+Node.js: We are using Node.js for its ability to execute JavaScript on the server side, which streamlines backend development. Its asynchronous programming enhances the responsiveness of our website, making it more efficient and capable of handling multiple concurrent requests.
 
-Express: A backend framework for handling HTTP requests, middleware integration, routes, etc.
+Express: As our backend framework, Express does the handling of HTTP requests, integrating middleware, defining routes, and more. Its minimalist design allows for flexibility and scalability.
 
-EJS(Emvedded JS):
-EJS is utilized as the view engine for dynamic website rendering, simplifying the creation of reusable template files and reducing code duplication (and mistakes).
+EJS (Embedded JavaScript): EJS serves as our view engine for dynamic website rendering. By embedding JavaScript code directly into HTML templates, EJS simplifies the creation of reusable components and helps reduce code duplication (and potential errors when working in a larger group). This allows us to maintain a clean and organized codebase while efficiently generating dynamic content on the server side.
 
-MongoDB:
-MongoDB is used for data storage. It handles data types like user budgets and account information.
+Mongoose: Mongoose is interacting with MongoDB, our chosen database solution. It provides a way to model application data and define schemas, making it easier to perform queries and manipulate data from the backend.
+
+MongoDB: MongoDB is our data storage system. It is handling various types of data, such as user budgets and account information, in a scalable and efficient manner.
 
 How to install and run the project:
-NPM NPM NPM NPM
-NPM drik
-NPM hæld
-NPM SUUUUG DEN LAJS
+NPM
+
+Credits:
+Albert Hansen - Aalborg university, Copenhagen.
+Aleksandar Dzambas - Aalborg university, Copenhagen.
+Emil Lykke - Aalborg university, Copenhagen.
+Oliver Kjær - Aalborg university, Copenhagen.
+Shafe Sadiq - Aalborg university, Copenhagen.
+Rasmus Jensen - Aalborg university, Copenhagen.
