@@ -29,8 +29,9 @@ git clone https://github.com/RasmusJensen1/P2.git
 Intall Node Package Manager (npm) to get the projects dependicies listed in the package.json file that is in the project by running the below in your terminal:
 "npm install"
 
-# To run the project now utalize the followingen script:
+# How to run the project:
 
+Utalize the followingen script in the terminal:
 npm run serverstart
 
 Go to the website deployed localy:
