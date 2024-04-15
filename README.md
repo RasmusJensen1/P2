@@ -2,7 +2,7 @@
 
 # Project Title:
 
-P2 - Expensia budget website
+Expensia budget website
 
 # Project Description
 
