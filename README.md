@@ -4,7 +4,7 @@
 
 P2 - Expensia budget website
 
-# Project Description and goal:
+# Project Description
 
 Our project addresses the financial challenges faced by young adults, primarily stemming from factors such as a lack of information and not utalizing finiancial tools such as a budget. We've developed a website featuring a user-friendly budgeting tool tailored to this demographic. The site has a simple design and intuitive interface, enabling users to create and manage budgets with interactive charts and sliders. Aditionally, the website includes an informative section featuring a brief glossary of financial terms and guidance on creating a good budget. Our goal is to empower young adults to manage their finances effectively and avoid debt sometimes leading to health issues such as stress etc.
 
