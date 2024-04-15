@@ -16,7 +16,10 @@ router.get("/", index_controller.home_page);
 router.get("/info", index_controller.info);
 
 /* GET create-budget page */
-router.get("/create-budget", budget_controller.create_budget);
+router.get("/create-budget", budget_controller.create_budget_get);
+
+/* POST create-budget page */
+router.post("/create-budget", budget_controller.create_budget_post);
 
 /* GET my-budgets page */
 router.get("/my-budgets", budget_controller.my_budgets);
