@@ -1,51 +1,49 @@
 /* style for tekst */
 
-  .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
-  }
+.container {
+  max-width: 1200px;
+  margin: 40px auto 200px; 
+  padding: 0 20px;
+}
 
-  .header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.header {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-  .columns {
-    display: flex;
-    justify-content: space-between;
-  }
+.columns {
+  display: flex;
+  margin-top: 50px; 
+}
+
+.column {
+  width: 45%;
+  margin: 0 5%; 
+}
+
+
+
+h3 {
+  font-size: 24px; 
+  text-align: center; 
+  margin-bottom: 40px; 
+}
+
+
+.create-button-info {
+  width: 1700px;
+  height: 120px;
+  border: 1px solid #115CF1;
+  background-color: #3C67F4;
+  margin: 20px auto; 
+  align-items: center;
+  justify-content: center;
+  display: flex;
   
-  .column {
-    width: 50%;
-  }
+}
 
-
-
-  /* styling for billede */
-  body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative; 
+.form-create-info {
+  color: white;
 }
 
 
-.bottom-image {
-     
-    left: 0;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-    margin-top: auto;
-    background-image: url('/images/infopicture.jpeg'); 
-    background-size: cover;
-    background-position: center; 
-    height: 300px;  
-}
-
-h2 {
-    font-size: 35px; 
-}
