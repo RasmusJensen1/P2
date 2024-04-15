@@ -2,7 +2,7 @@
 
 .container {
   max-width: 1200px;
-  margin: 40px auto 200px; 
+  margin: 40px auto 200px; /* Adjusted margin to move container lower */
   padding: 0 20px;
 }
 
@@ -13,12 +13,12 @@
 
 .columns {
   display: flex;
-  margin-top: 50px; 
+  margin-top: 50px; /* Added margin to move columns lower */
 }
 
 .column {
   width: 45%;
-  margin: 0 5%; 
+  margin: 0 5%; /* Adjusted margin for spacing between columns */
 }
 
 
@@ -29,13 +29,13 @@ h3 {
   margin-bottom: 40px; 
 }
 
-
+/* css for header "information */
 .create-button-info {
   width: 1700px;
-  height: 120px;
+  height: 170px;
   border: 1px solid #115CF1;
   background-color: #3C67F4;
-  margin: 20px auto; 
+  margin: 20px auto; /* Center the button horizontally */
   align-items: center;
   justify-content: center;
   display: flex;
