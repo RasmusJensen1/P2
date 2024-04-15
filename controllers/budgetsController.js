@@ -15,4 +15,12 @@ exports.create_budget_get = asyncHandler(async (req, res, next) => {
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
   res.redirect("my-budgets");
+  var data = {
+  budgetName: req.body.name,
+  budgetStyle: req.body.budgetstyle,
+  };
+
+  console.log(data);
 }); 
+
+
