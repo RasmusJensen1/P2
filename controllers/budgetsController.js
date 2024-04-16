@@ -20,8 +20,7 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
     budgetName: req.body.name,
     budgetStyle: req.body.budgetstyle,
   };
-  console.log(data);
-
+  
   try{
     await Budget.create({
       name: data.budgetName,
