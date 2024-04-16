@@ -4,6 +4,9 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
+const {config} = require('dotenv')
+
+config();
 
 const mongoose = require("mongoose");
 
@@ -25,8 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 mongoose.set("strictQuery", false);
 
-const mongoDB =
-  "mongodb+srv://shafesadiq03:kiyTUWgW4lme6WJV@cluster0.5iseri8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = process.env.MONGODB_URL;
 
 main().catch((err) => console.log(err));
 async function main() {

@@ -1,11 +1,13 @@
 const User = require("./models/user.model");
 const Budget = require("./models/budget.model");
 const mongoose = require("mongoose");
+const {config} = require("dotenv");
+config()
 
 mongoose.set("strictQuery", false);
 
-const mongoDB =
-  "mongodb+srv://shafesadiq03:kiyTUWgW4lme6WJV@cluster0.5iseri8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = process.env.MONGODB_URL
+  
 
 main().catch((err) => console.log(err));
 

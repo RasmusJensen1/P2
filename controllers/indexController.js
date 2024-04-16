@@ -1,13 +1,11 @@
-const asyncHandler = require("express-async-handler");
-
-exports.home_page = asyncHandler(async (req, res, next) => {
+exports.home_page = (req, res) => {
   res.render("home", {
     title: "Home",
   });
-});
+};
 
-exports.info = asyncHandler(async (req, res, next) => {
+exports.info = (req, res) => {
   res.render("info", {
     title: "Info",
   });
-});
+};
