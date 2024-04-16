@@ -2,12 +2,12 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 const User = require("../models/user.model");
 
-exports.login_get = asyncHandler(async (req, res, next) => {
+exports.login_get = (req, res) => {
   res.render("login", {
     title: "Login",
     errors: undefined,
   });
-});
+};
 
 exports.login_post = [
   body("username", "Username cannot be longer than 20 characters")
@@ -25,7 +25,7 @@ exports.login_post = [
 
     console.log(data);
 
-    const user_login = await User.findOne({ username: data.username });
+    const user_login = await User.findOne({ username: data.username }).exec();
 
     if (!user_login) {
       errors.errors.push({ msg: "Username does not exist" });
@@ -44,12 +44,12 @@ exports.login_post = [
   }),
 ];
 
-exports.signup_get = asyncHandler(async (req, res, next) => {
+exports.signup_get = (req, res) => {
   res.render("login", {
     title: "Sign up",
     errors: undefined,
   });
-});
+};
 
 exports.signup_post = [
   body("newUsername", "Username must be atleast 4 and max 20 characters")
