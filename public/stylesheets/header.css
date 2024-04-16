@@ -113,12 +113,12 @@ nav ul li {
 
 .tool-tip>span {
   visibility: hidden;
-  width: 120px;
+  width: 160px;
   height: fit-content;
   background-color: #ffffff;
   color: #000000;
   text-align: center;
-  padding: 5px 0;
+  padding: 8px;
   border-radius: 6px;
   border: 3px solid;
   border-color: rgb(0, 0, 0);
@@ -126,7 +126,7 @@ nav ul li {
   z-index: 2px;
   position: absolute;
 
-  margin-left: 160px;
+  margin-left: 200px;
 
 }
 
