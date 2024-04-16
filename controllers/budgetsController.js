@@ -16,11 +16,11 @@ exports.create_budget_get = (req, res) => {
 };
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
-  var data = {
+  const data = {
     budgetName: req.body.name,
     budgetStyle: req.body.budgetstyle,
   };
-  
+
   try{
     await Budget.create({
       name: data.budgetName,

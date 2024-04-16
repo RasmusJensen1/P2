@@ -23,7 +23,7 @@ const budgetSchema = new Schema(
     ],
     budgetType: {
       type: String,
-      enum: ["Basic, Other"],
+      enum: ["Basic", "Other"],
     },
     userId: {
       type: Schema.ObjectId,
