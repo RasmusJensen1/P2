@@ -1,11 +1,13 @@
 const asyncHandler = require("express-async-handler");
+const Budget = require("../models/budget.model");
 
-exports.my_budgets = (req, res) => {
+exports.my_budgets = asyncHandler(async (req, res, next) => {
+  const allBudgets = await Budget.find();
   res.render("mybudgets", {
     title: "My_budgets",
-    budgets: [1, 2, 3, 4, 5],
+    budget_list: allBudgets,
   });
-};
+});
 
 exports.create_budget_get = (req, res) => {
   res.render("uploadBudget", {
@@ -15,4 +17,4 @@ exports.create_budget_get = (req, res) => {
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
   res.redirect("my-budgets");
-}); 
+});
