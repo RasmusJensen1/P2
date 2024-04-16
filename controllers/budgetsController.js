@@ -25,7 +25,7 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
   try{
     await Budget.create({
       name: data.budgetName,
-      //tilføj type
+      type: data.budgetStyle
     });
   } catch (error) {
     console.error("Error creating budget:", error);
