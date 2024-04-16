@@ -38,8 +38,10 @@ exports.login_post = [
         title: "Login",
         errors: errors.array(),
       });
+
     } else {
-      res.redirect("my-budgets");
+      const userCookie = btoa(JSON.stringify({ id:user_login._id,  username: user_login.username }))
+      res.cookie("user_cookie", userCookie,  { maxAge: 900000 }).redirect("/my-budgets");
     }
   }),
 ];
