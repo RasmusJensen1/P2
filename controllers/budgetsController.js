@@ -16,5 +16,18 @@ exports.create_budget_get = (req, res) => {
 };
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
+  const data = {
+    budgetName: req.body.name,
+    budgetStyle: req.body.budgetstyle,
+  };
+
+  try{
+    await Budget.create({
+      name: data.budgetName,
+      type: data.budgetStyle
+    });
+  } catch (error) {
+    console.error("Error creating budget:", error);
+  }
   res.redirect("my-budgets");
 });
