@@ -25,29 +25,8 @@
 }
 
 
-
-.tool-tip>span {
-    visibility: hidden;
-    width: 120px;
-    background-color: #ffffff;
-    color: #000000;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    border: 3px solid;
-    border-color: rgb(211, 211, 211);
-    font: helvetica;
-    z-index: 2px;
-    position: absolute;
-
-
-}
-
-.tool-tip:hover>span {
-    visibility: visible;
-}
-
 #tool-tip-text-mybudgets {
     margin-top: 100px;
     margin-right: 110px;
+    margin-left: 0px;
 }

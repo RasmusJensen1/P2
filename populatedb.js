@@ -1,11 +1,13 @@
 const User = require("./models/user.model");
 const Budget = require("./models/budget.model");
 const mongoose = require("mongoose");
+const {config} = require("dotenv");
+config()
 
 mongoose.set("strictQuery", false);
 
-const mongoDB =
-  "mongodb+srv://shafesadiq03:kiyTUWgW4lme6WJV@cluster0.5iseri8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongoDB = process.env.MONGODB_URL
+  
 
 main().catch((err) => console.log(err));
 
@@ -24,8 +26,8 @@ async function main() {
 async function create_user_and_budgets(
   username,
   password,
+  type,
   budgetName,
-  date,
   totalIncome,
   expenses
 ) {
@@ -40,9 +42,9 @@ async function create_user_and_budgets(
 
     const budget = await Budget.create({
       name: budgetName,
-      date: date,
       totalIncome: totalIncome,
       totalExpense: totalExpense,
+      budgetType: type,
       expenses: expenses,
       userId: user._id,
     });
@@ -56,8 +58,8 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "JohnDoe",
     "password123",
+    "Basic",
     "Monthly Budget",
-    Date.now(),
     5000,
     [
       { expenseName: "Rent", part: 0.4 },
@@ -70,8 +72,8 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "AliceSmith",
     "letmeinnowplease",
+    "Basic",
     "Weekly Allowance",
-    Date.now(),
     6000,
     [
       { expenseName: "Dining out", part: 0.1 },
@@ -83,8 +85,8 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "BobJohnson",
     "securepass",
+    "Basic",
     "Biweekly Expenses",
-    Date.now(),
     7000,
     [
       { expenseName: "Bills", part: 0.8 },
@@ -96,8 +98,8 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "EmmaBrown",
     "testpassword",
+    "Basic",
     "Yearly Budget",
-    Date.now(),
     8000,
     [
       { expenseName: "Rent", part: 0.5 },
@@ -109,8 +111,8 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "MichaelDavis",
     "pass1234567",
+    "Basic",
     "Daily Expenses",
-    Date.now(),
     4000,
     [
       { expenseName: "Coffee", part: 0.5 },

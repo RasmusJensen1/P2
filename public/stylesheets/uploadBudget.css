@@ -6,13 +6,16 @@
 
 #form-container {
     background-color: white;
-    max-width: 50%;
+    width: 50%;
+    min-width: 400px;
+    max-width: 500px;
 }
 
 #form-header {
     margin-top: 60px;
     margin-bottom: 40px;
     font-size: 60px;
+    text-align: center;
 }
 
 hr {
@@ -37,7 +40,7 @@ input[type="text"] {
 }
 
 #form-template select {
-    width: 450px;
+    width: 100%;
     height: 50px;
     border: 1px solid #040404;
     border-radius: 5px;
@@ -61,11 +64,11 @@ input[type="text"] {
 }
 
 .create-button {
-    width: 450px;
+    width: 100%;
     height: 50px;
     border: 1px solid #115cf1;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 50px;
     background-color: blue;
 
     background-color: #3C67F4;
@@ -80,26 +83,9 @@ input[type="text"] {
     margin-top: 50px;
 }
 
-.tool-tip>span {
-    visibility: hidden;
-    width: 120px;
-    height: fit-content;
-    background-color: #ffffff;
-    color: #000000;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    border: 3px solid;
-    border-color: rgb(0, 0, 0);
-    font: helvetica;
-    z-index: 2px;
-    position: absolute;
-    flex: auto;
-
-    margin-left: 160px;
-
-}
-
-.tool-tip:hover>span {
-    visibility: visible;
+@media screen and (max-width: 1000px) {
+    #form-header {
+        font-size: 32px;
+        text-align: center;
+    }
 }
