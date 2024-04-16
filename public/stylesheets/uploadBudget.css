@@ -53,16 +53,16 @@ input[type="text"] {
     align-items: center;
     margin-top: 20px;
     justify-content: center;
-  }
-  
-  #sky-image {
+}
+
+#sky-image {
     height: 50px;
     width: 50px;
     cursor: pointer;
     margin-top: 10px;
     justify-content: center;
-  }
-  
+}
+
 .create-button {
     width: 100%;
     height: 50px;
@@ -79,9 +79,13 @@ input[type="text"] {
     color: white;
 }
 
-@media screen and (max-width: 1000px){
-#form-header {
-    font-size: 32px;
-    text-align: center;
+.create-button {
+    margin-top: 50px;
 }
+
+@media screen and (max-width: 1000px) {
+    #form-header {
+        font-size: 32px;
+        text-align: center;
+    }
 }
