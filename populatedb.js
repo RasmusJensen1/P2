@@ -27,7 +27,6 @@ async function create_user_and_budgets(
   username,
   password,
   budgetName,
-  date,
   totalIncome,
   expenses
 ) {
@@ -42,7 +41,6 @@ async function create_user_and_budgets(
 
     const budget = await Budget.create({
       name: budgetName,
-      date: date,
       totalIncome: totalIncome,
       totalExpense: totalExpense,
       expenses: expenses,
@@ -59,7 +57,6 @@ async function createUsersAndBudgets() {
     "JohnDoe",
     "password123",
     "Monthly Budget",
-    Date.now(),
     5000,
     [
       { expenseName: "Rent", part: 0.4 },
@@ -73,7 +70,6 @@ async function createUsersAndBudgets() {
     "AliceSmith",
     "letmeinnowplease",
     "Weekly Allowance",
-    Date.now(),
     6000,
     [
       { expenseName: "Dining out", part: 0.1 },
@@ -86,7 +82,6 @@ async function createUsersAndBudgets() {
     "BobJohnson",
     "securepass",
     "Biweekly Expenses",
-    Date.now(),
     7000,
     [
       { expenseName: "Bills", part: 0.8 },
@@ -99,7 +94,6 @@ async function createUsersAndBudgets() {
     "EmmaBrown",
     "testpassword",
     "Yearly Budget",
-    Date.now(),
     8000,
     [
       { expenseName: "Rent", part: 0.5 },
@@ -112,7 +106,6 @@ async function createUsersAndBudgets() {
     "MichaelDavis",
     "pass1234567",
     "Daily Expenses",
-    Date.now(),
     4000,
     [
       { expenseName: "Coffee", part: 0.5 },
