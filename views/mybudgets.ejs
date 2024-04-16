@@ -26,7 +26,7 @@
           </td>
           <td><%= budget.name %></td>
           <td><%= budget.totalIncome %> dkk</td>
-          <td>Basic</td>
+          <td><%= budget.budgetType %></td>
           <td><%= new Date(budget.updatedAt).toLocaleDateString() %></td>
           <td><%= new Date(budget.createdAt).toLocaleDateString() %></td>
           <td>edit</td>

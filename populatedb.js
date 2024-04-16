@@ -24,6 +24,7 @@ async function main() {
 async function create_user_and_budgets(
   username,
   password,
+  type,
   budgetName,
   totalIncome,
   expenses
@@ -41,6 +42,7 @@ async function create_user_and_budgets(
       name: budgetName,
       totalIncome: totalIncome,
       totalExpense: totalExpense,
+      budgetType: type,
       expenses: expenses,
       userId: user._id,
     });
@@ -54,6 +56,7 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "JohnDoe",
     "password123",
+    "Basic",
     "Monthly Budget",
     5000,
     [
@@ -67,6 +70,7 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "AliceSmith",
     "letmeinnowplease",
+    "Basic",
     "Weekly Allowance",
     6000,
     [
@@ -79,6 +83,7 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "BobJohnson",
     "securepass",
+    "Basic",
     "Biweekly Expenses",
     7000,
     [
@@ -91,6 +96,7 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "EmmaBrown",
     "testpassword",
+    "Basic",
     "Yearly Budget",
     8000,
     [
@@ -103,6 +109,7 @@ async function createUsersAndBudgets() {
   await create_user_and_budgets(
     "MichaelDavis",
     "pass1234567",
+    "Basic",
     "Daily Expenses",
     4000,
     [
