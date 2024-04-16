@@ -8,7 +8,8 @@ Our project addresses the financial challenges faced by young adults, primarily 
 
 # Techstack:
 
-Node.js: We are using Node.js for its ability to execute JavaScript on the server side, which streamlines backend development. Its asynchronous programming enhances the responsiveness of our website, making it more efficient and capable of handling multiple concurrent requests.
+Node.js: We are using Node.js for its ability to execute JavaScript on the server side, which streamlines backend development.
+Its ability to work more asynchronously makes it possible for us to communicate with a database.
 
 Express: As our backend framework, Express handles HTTP requests, integrates middleware, defines routes, and more. Its minimalist design allows for flexibility and scalability.
 
