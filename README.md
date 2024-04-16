@@ -24,13 +24,22 @@ MongoDB: MongoDB is our data storage system. It handles various types of data, s
 Install Node.js either through the website or via terminal.
 
 Clone the repository by running the following command in your terminal:
-`git clone https://github.com/RasmusJensen1/P2.git`
+
+```
+git clone https://github.com/RasmusJensen1/P2.git
+```
 
 Install Node Package Manager (npm) to get the project's dependencies listed in the package.json file by running the following command in your terminal:
-`npm install`
+
+```
+npm install
+```
 
 Utilize the following script in the terminal:
-`npm run serverstart`
+
+```
+npm run serverstart
+```
 
 Go to the locally deployed website:
 http://localhost:3000
