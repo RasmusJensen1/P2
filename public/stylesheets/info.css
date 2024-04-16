@@ -2,7 +2,7 @@
 
 .container {
   max-width: 1200px;
-  margin: 40px auto 200px; /* Adjusted margin to move container lower */
+  margin: 40px auto 200px; 
   padding: 0 20px;
 }
 
@@ -13,15 +13,13 @@
 
 .columns {
   display: flex;
-  margin-top: 50px; /* Added margin to move columns lower */
+  margin-top: 50px; 
 }
 
 .column {
   width: 45%;
-  margin: 0 5%; /* Adjusted margin for spacing between columns */
+  margin: 0 5%; 
 }
-
-
 
 h3 {
   font-size: 24px; 
@@ -31,19 +29,33 @@ h3 {
 
 /* css for header "information */
 .create-button-info {
-  width: 1700px;
-  height: 170px;
+  width: 110vh; 
+  height: 17vh; 
   border: 1px solid #115CF1;
   background-color: #3C67F4;
-  margin: 50px auto; /* Center the button horizontally */
+  margin: 5vh auto; 
   align-items: center;
   justify-content: center;
   display: flex;
-  
 }
+
 
 .form-create-info {
   color: white;
 }
 
+
+/* css for bullet points */
+.right-column li {
+  list-style-type: circle; 
+
+  margin-bottom: 10px;
+}
+
+
+
+.left-column li {
+  list-style-type: circle; 
+  margin-bottom: 10px;
+}
 
