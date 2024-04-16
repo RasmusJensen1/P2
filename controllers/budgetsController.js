@@ -7,11 +7,11 @@ exports.my_budgets = (req, res) => {
   });
 };
 
-exports.create_budget_get = asyncHandler(async (req, res, next) => {
+exports.create_budget_get = (req, res) => {
   res.render("uploadBudget", {
     title: "Create_budget",
   });
-});
+};
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
   res.redirect("my-budgets");
