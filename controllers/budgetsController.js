@@ -1,4 +1,5 @@
 const asyncHandler = require("express-async-handler");
+const Budget = require ("../models/budget.model");
 
 exports.my_budgets = (req, res) => {
   res.render("mybudgets", {
@@ -14,13 +15,19 @@ exports.create_budget_get = (req, res) => {
 };
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
-  res.redirect("my-budgets");
   var data = {
-  budgetName: req.body.name,
-  budgetStyle: req.body.budgetstyle,
+    budgetName: req.body.name,
+    budgetStyle: req.body.budgetstyle,
   };
-
   console.log(data);
+
+  try{
+    await Budget.create({
+      name: data.budgetName,
+      //tilføj type
+    });
+  } catch (error) {
+    console.error("Error creating budget:", error);
+  }
+  res.redirect("my-budgets");
 }); 
-
-
