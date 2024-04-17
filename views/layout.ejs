@@ -43,6 +43,15 @@
     </nav>
 
     <%- body %>
+
+
+    <% switch(title) { case 'Budget_instance': %>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type='text/javascript'>
+      const budget = '<%- JSON.stringify(budget) %>';
+    </script>
     <script src="/javascript/mainPage.js"></script>
+    <script src="/javascript/mainPageChart.js" ></script>
+    <% break; default: %> <% break; } %>
   </body>
 </html>

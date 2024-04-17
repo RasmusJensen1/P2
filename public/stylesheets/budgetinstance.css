@@ -76,3 +76,16 @@
   /* Cursor on hover */
   border-radius: 50%;
 }
+
+.column {
+  width: 100%;
+  display: flex;
+}
+
+.column div {
+  width: 50%;
+}
+
+#chart-content {
+  width: 100%;
+}
