@@ -43,3 +43,14 @@ rangeInput.addEventListener("change", (e) => {
 
   value.textContent = newVal + " DKK";
 });
+
+slider.addEventListener("mousemove", function () {
+  var x = slider.value;
+  var color =
+    "linear-gradient(90deg, rgb(117,252,117)" +
+    x +
+    "%, rgb()214,214,214)" +
+    x +
+    "%)";
+  slider.style.background = color;
+});

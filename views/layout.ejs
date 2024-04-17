@@ -42,18 +42,22 @@
       </ul>
     </nav>
 
-    <%- body %>
-
-
+    <%- body %> 
     <% switch(title) { case 'Budget_instance': %>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-    <script type='text/javascript'>
-      const budget = '<%- JSON.stringify(budget) %>';
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
+      integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script type="text/javascript">
+      const budgetInstance = '<%- JSON.stringify(budget) %>';
+      let budget = JSON.parse(budgetInstance)
     </script>
     <script src="/javascript/mainPage.js"></script>
-    <script src="/javascript/mainPageChart.js" ></script>
+    <script src="/javascript/mainPageChart.js"></script>
     <% break; default: %> <% break; } %>
   </body>
 </html>
