@@ -53,7 +53,6 @@ h3 {
 }
 
 
-
 .left-column li {
   list-style-type: circle; 
   margin-bottom: 10px;
@@ -64,10 +63,16 @@ h3 {
   font-size: 40px; 
   text-align: center; 
   margin-top: -160px;
+  margin-bottom: 20px;
 }
+
+
+.glos {width:100%; }
+
 
 .glos li {
   list-style-type: circle; 
   margin-bottom: 10px;
-  text-align: center; 
+  width:100%; 
+  margin: 1% 30%; 
 }
