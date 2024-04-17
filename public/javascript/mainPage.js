@@ -1,4 +1,5 @@
-console.log("mainPage");
+
+
 
 const root = document.getElementById('slider-container') //or target div
 const expense = document.createElement('div');
