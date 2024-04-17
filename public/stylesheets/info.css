@@ -59,3 +59,16 @@ h3 {
   margin-bottom: 10px;
 }
 
+
+.glos > h4 {
+  font-size: 40px; 
+  text-align: center; 
+  margin-top: -160px;
+}
+
+.glos li {
+  list-style-type: circle; 
+
+  margin-bottom: 10px;
+  text-align: center; 
+}
