@@ -8,14 +8,12 @@ function calculate_dkk(part) {
   return budget.totalIncome * part;
 }
 
-function getSliderX(input){
-return ((input.value - input.min) /
-    (input.max - input.min)) *
-    100;
+function getSliderX(input) {
+  return ((input.value - input.min) / (input.max - input.min)) * 100;
 }
 
 chosenBudget.expenses.forEach((expense) => {
-  // Create expense div 
+  // Create expense div
   const expense_div = document.createElement("div");
 
   // Circle to contain the expense name
@@ -47,8 +45,6 @@ chosenBudget.expenses.forEach((expense) => {
   input_container.appendChild(input);
   input_container.appendChild(value);
 
-
-  
   // Set attributes for the input element (range slider)
   input.setAttribute("type", "range");
   input.setAttribute("class", "slider");
@@ -57,24 +53,37 @@ chosenBudget.expenses.forEach((expense) => {
   input.setAttribute("max", budget.totalIncome);
   input.setAttribute("value", calculate_dkk(expense.part));
 
-const start_x = getSliderX(input)
+  const start_x = getSliderX(input);
   input.style.background = `linear-gradient(90deg, #3c67f4 ${start_x}%, #ffffff ${start_x}%)`;
 
   // TODO: Move this to top or bottom.
   // Appending expense div to the slider-container
   root.appendChild(expense_div);
 
-//   const rangeInput = document.querySelector('input[type="range"]');
-//   const rangeText = document.querySelector(".show-value");
+  input.addEventListener("input", (e) => {
+    const surplusPercentage =
+      1 - chosenBudget.expenses.reduce((prev, next) => prev + next.part, 0);
 
+    const maxValue =
+      surplusPercentage * chosenBudget.totalIncome + Number(input.value);
 
-  input.addEventListener("change", (e) => {
-    value.textContent = e.target.value + " DKK";
+    const part = e.target.value / chosenBudget.totalIncome;
+    if (input.value > maxValue) {
+      input.value = maxValue;
+      value.textContent = e.target.value + " DKK";
+      expense.part = part;
+    } else {
+      value.textContent = e.target.value + " DKK";
+      expense.part = part;
+      const x = getSliderX(input);
+      const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
+      input.style.background = color;
+    }
   });
 
-  input.addEventListener("input",  () => {
-    const x = getSliderX(input)
-    const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
-    input.style.background = color;
+  input.addEventListener("change", (e) => {
+    const part = e.target.value / chosenBudget.totalIncome;
+    expense.part = part;
+    console.log(expense);
   });
 });
