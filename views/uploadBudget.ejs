@@ -8,7 +8,12 @@
 
         <form method="post" for="name">
           <h3 class="form-input">Name
-            <div class="tool-tip">?</div>
+            <div class="tool-tip">
+              ?
+              <span class="tool-tip-text">
+                Type the name of your new budget.
+              </span>
+            </div>
           </h3>
           <br>
           <input type="text" id="name" name="name" class="form-input" placeholder="">
@@ -18,18 +23,24 @@
       <div id="form-template">
         <label for="Basic template">
           <h3 class="form-input">Budget style
-            <div class="tool-tip">?</div>
+            <div class="tool-tip">
+              ?
+              <span>Choose the type of budget you would like.</span>
+            </div>
           </h3>
         </label>
-        <select>
-          <option>Basic template</option>
-          <option>Other templates</option>
+        <select id="budgetstyle" name="budgetstyle">
+          <option>Basic</option>
+          <option>Other</option>
         </select>
 
       </div>
     </div>
 
-    <h3 class="form-input">Upload Budget<div class="tool-tip">?</div>
+    <h3 class="form-input">Upload Budget<div class="tool-tip">
+        ?
+        <span class="tool-tip-text">Upload a budget from your pc to edit.</span>
+      </div>
     </h3>
 
     <div id="sky-upload">

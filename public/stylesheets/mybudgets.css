@@ -1,4 +1,4 @@
-.top-container{
+.top-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -13,13 +13,20 @@
 
 }
 
-.budgets-container > table {
+.budgets-container>table {
     border-collapse: collapse;
     width: 100%;
     text-align: left;
 }
 
-.budgets-container > table > thead > tr > th {
+.budgets-container>table>thead>tr>th {
     border-bottom: 3px solid black;
     padding-bottom: 10px;
+}
+
+
+#tool-tip-text-mybudgets {
+    margin-top: 100px;
+    margin-right: 160px;
+    margin-left: 0px;
 }
