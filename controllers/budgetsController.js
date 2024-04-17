@@ -29,5 +29,5 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
   } catch (error) {
     console.error("Error creating budget:", error);
   }
-  res.redirect("my-budgets");
+  res.redirect("/my-budgets");
 });
