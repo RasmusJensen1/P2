@@ -36,7 +36,7 @@ router.get("/sign-up", user_controller.signup_get);
 /* POST signup */
 router.post("/sign-up", user_controller.signup_post);
 
-/* GET signup */
+/* GET BudgetInstance */
 router.get(
   "/budgetinstance/:id",
   budgetinstance_controller.budget_instance_get

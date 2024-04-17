@@ -71,3 +71,17 @@
 .input-container {
   position: relative;
 }
+
+.column {
+  width: 100%;
+  display: flex;
+}
+
+.column div {
+  width: 50%;
+}
+
+#chart-content {
+  width: 100%;
+  max-height: 80vh;
+}
