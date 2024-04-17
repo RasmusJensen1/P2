@@ -1,17 +1,22 @@
 const chart = document.getElementById("chart");
 
-const selectedBudget = budget;
-const labels = selectedBudget.expenses.map((expense) => expense.expenseName);
+const labels = budget.expenses.map((expense) => expense.expenseName);
 labels.push("Surplus");
 
-const totalIncome = selectedBudget.totalIncome;
+const totalIncome = budget.totalIncome;
 
 const surplusPercentage =
-  1 - selectedBudget.expenses.reduce((prev, next) => prev + next.part, 0);
+  1 - budget.expenses.reduce((prev, next) => prev + next.part, 0);
 const surplus = surplusPercentage * 100;
 
-const dataPoints = selectedBudget.expenses.map((expense) => expense.part * 100);
+let dataPoints = budget.expenses.map((expense) => expense.part * 100);
 dataPoints.push(surplus);
+
+document.addEventListener("change", () => {
+    dataPoints = budget.expenses.map((expense) => expense.part * 100);
+    dataPoints.push(surplus);
+    console.log(dataPoints);
+});
 
 const config = {
   type: "pie",
@@ -35,6 +40,7 @@ const config = {
         color: "#000",
       },
     },
+    responsive: true,
   },
   plugins: [ChartDataLabels],
 };
