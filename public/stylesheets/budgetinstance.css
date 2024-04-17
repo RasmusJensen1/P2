@@ -12,7 +12,7 @@
   z-index: 2;
 }
 
-.expense {
+.expense_div {
   display: flex;
   align-items: center;
 }
@@ -27,6 +27,7 @@
   -webkit-transition: .1s;
   transition: .1s;
   margin-left: -10px;
+  background: linear-gradient(90deg, #3c67f4 60%, #ffffff 60%);
 }
 
 .slider:hover {
