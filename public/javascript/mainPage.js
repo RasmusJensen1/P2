@@ -4,60 +4,77 @@ console.log(chosenBudget.expenses);
 
 const root = document.getElementById("slider-container");
 
-function calculate_amount(part) {
+function calculate_dkk(part) {
   return budget.totalIncome * part;
 }
 
+function getSliderX(input){
+return ((input.value - input.min) /
+    (input.max - input.min)) *
+    100;
+}
+
 chosenBudget.expenses.forEach((expense) => {
-  //   Creates each expense changer
+  // Create expense div 
   const expense_div = document.createElement("div");
+
+  // Circle to contain the expense name
   const circle = document.createElement("div");
-  const input_container = document.createElement("div");
-  const input = document.createElement("input");
-  const value = document.createElement("div");
-
+  // Set the text content of the circle to the expense name
   circle.textContent = expense.expenseName;
-  expense_div.appendChild(circle);
 
+  // Div to contain the input (range slider) and value
+  const input_container = document.createElement("div");
+
+  // Slider input
+  const input = document.createElement("input");
+
+  // Value of the slider
+  const value = document.createElement("div");
+  value.textContent = calculate_dkk(expense.part) + " DKK";
+
+  // Set class names for elements
+  value.setAttribute("class", "show-value");
+  circle.setAttribute("class", "circle");
+  expense_div.setAttribute("class", "expense_div");
+  input_container.setAttribute("class", "input-container");
+
+  // Add the elements to the expense div
+  expense_div.appendChild(circle);
   expense_div.appendChild(input_container);
+
+  // Add elements to the input container
   input_container.appendChild(input);
   input_container.appendChild(value);
 
+
+  
+  // Set attributes for the input element (range slider)
   input.setAttribute("type", "range");
   input.setAttribute("class", "slider");
   input.setAttribute("id", expense.name);
   input.setAttribute("min", "0");
   input.setAttribute("max", budget.totalIncome);
-  input.setAttribute("value", calculate_amount(expense.part));
+  input.setAttribute("value", calculate_dkk(expense.part));
 
-  value.setAttribute("class", "show-value");
+const start_x = getSliderX(input)
+  input.style.background = `linear-gradient(90deg, #3c67f4 ${start_x}%, #ffffff ${start_x}%)`;
 
-  circle.setAttribute("class", "circle");
-
-  expense_div.setAttribute("class", "expense_div");
-
-  input_container.setAttribute("class", "input-container");
-
+  // TODO: Move this to top or bottom.
+  // Appending expense div to the slider-container
   root.appendChild(expense_div);
 
-  const rangeInput = document.querySelector('input[type="range"]');
-  const rangeText = document.querySelector(".show-value");
+//   const rangeInput = document.querySelector('input[type="range"]');
+//   const rangeText = document.querySelector(".show-value");
 
-  value.textContent = calculate_amount(expense.part) + " DKK";
 
-  rangeInput.addEventListener("change", (e) => {
-    let newVal = e.target.value;
-    let negNewVal = -1 * newVal;
-
-    value.textContent = newVal + " DKK";
+  input.addEventListener("change", (e) => {
+    value.textContent = e.target.value + " DKK";
   });
 
-  rangeInput.addEventListener("input", function () {
-    const x =
-      ((rangeInput.value - rangeInput.min) /
-        (rangeInput.max - rangeInput.min)) *
-      100;
+  input.addEventListener("input",  () => {
+    const x = getSliderX(input)
     const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
-    rangeInput.style.background = color;
+    input.style.background = color;
   });
 });
