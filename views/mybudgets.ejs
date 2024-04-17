@@ -4,7 +4,9 @@
     <button class="butt butt-primary">Upload (icon)</button>
     <div class="tool-tip">
       ?
-      <span id="tool-tip-text-mybudgets">You can upload your previously downloaded budgets here</span>
+      <span id="tool-tip-text-mybudgets"
+        >You can upload your previously downloaded budgets here</span
+      >
     </div>
   </div>
   <div class="budgets-container">
@@ -21,32 +23,20 @@
         </tr>
       </thead>
       <tbody>
-        <% let i=1; %>
-          <% budget_list.forEach((budget)=> { %>
-            <tr>
-              <td>
-                <input type="checkbox" />
-                <%= i %>
-              </td>
-              <td>
-                <%= budget.name %>
-              </td>
-              <td>
-                <%= budget.totalIncome %> dkk
-              </td>
-              <td>
-                <%= budget.budgetType %>
-              </td>
-              <td>
-                <%= new Date(budget.updatedAt).toLocaleDateString() %>
-              </td>
-              <td>
-                <%= new Date(budget.createdAt).toLocaleDateString() %>
-              </td>
-              <td>edit</td>
-              <% i++; %>
-                <% }); %>
-            </tr>
+        <% let i=1; %> <% budget_list.forEach((budget)=> { %>
+        <tr>
+          <td>
+            <input type="checkbox" />
+            <%= i %>
+          </td>
+          <td><%= budget.name %></td>
+          <td><%= budget.totalIncome %> dkk</td>
+          <td><%= budget.budgetType %></td>
+          <td><%= new Date(budget.updatedAt).toLocaleDateString() %></td>
+          <td><%= new Date(budget.createdAt).toLocaleDateString() %></td>
+          <td><a href="/budgetinstance/<%= budget._id %>">edit</a></td>
+          <% i++; %> <% }); %>
+        </tr>
       </tbody>
     </table>
   </div>

@@ -36,7 +36,13 @@ router.get("/sign-up", user_controller.signup_get);
 /* POST signup */
 router.post("/sign-up", user_controller.signup_post);
 
-/* GET budget instance page (Not implemented) */
-router.get("/budgetinstance", budgetinstance_controller.budget_instance);
+/* GET signup */
+router.get(
+  "/budgetinstance/:id",
+  budgetinstance_controller.budget_instance_get
+);
+
+// /* POST budget instance */
+// router.post("/my-budgets/:id", budgetinstance_controller.budget_instance_post);
 
 module.exports = router;
