@@ -34,7 +34,7 @@
           <td><%= budget.budgetType %></td>
           <td><%= new Date(budget.updatedAt).toLocaleDateString() %></td>
           <td><%= new Date(budget.createdAt).toLocaleDateString() %></td>
-          <td><a href="/budgetinstance/<%= budget._id %>">edit</a></td>
+          <td><a href="/budgetinstance/<%= budget._id %>"><img src="/images/edit-button.png" id="edit-button"></a></td>
           <% i++; %> <% }); %>
         </tr>
       </tbody>
