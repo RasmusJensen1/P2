@@ -67,14 +67,19 @@ h3 {
 }
 
 
-.glos {width:100%; }
+.glos {
+  width:70%;
+}
+
+.glos-container{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 .glos li {
   list-style-type: circle; 
   margin-bottom: 10px;
-  width:100%; 
-  margin: 0% 30%; 
-  margin-bottom: 10px;
-
 }
