@@ -74,5 +74,7 @@ h3 {
   list-style-type: circle; 
   margin-bottom: 10px;
   width:100%; 
-  margin: 1% 30%; 
+  margin: 0% 30%; 
+  margin-bottom: 10px;
+
 }
