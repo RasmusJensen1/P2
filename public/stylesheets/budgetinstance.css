@@ -92,8 +92,14 @@
   place-items: center;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   #slider-container {
     grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .column {
+    flex-direction: column;
   }
 }
