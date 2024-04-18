@@ -38,6 +38,9 @@ budget.expenses.forEach((expense) => {
     expense_div.setAttribute("class", "expense_div");
     input_container.setAttribute("class", "input-container");
 
+    // Appending expense div to the slider-container
+    root.appendChild(expense_div);
+
     // Add the elements to the expense div
     expense_div.appendChild(circle);
     expense_div.appendChild(input_container);
@@ -57,9 +60,6 @@ budget.expenses.forEach((expense) => {
     const start_x = getSliderX(input);
     input.style.background = `linear-gradient(90deg, #3c67f4 ${start_x}%, #ffffff ${start_x}%)`;
 
-    // TODO: Move this to top or bottom.
-    // Appending expense div to the slider-container
-    root.appendChild(expense_div);
     
     let maxValue = surplusPercentage1 * budget.totalIncome + Number(input.value);
 
@@ -76,12 +76,10 @@ budget.expenses.forEach((expense) => {
             const x = getSliderX(input);
             const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
             input.style.background = color;
-
         }
 
         input.value = newValue;
         value.textContent = Math.round(newValue) + " DKK";
-
     });
 
     input.addEventListener("change", (e) => {
@@ -108,5 +106,4 @@ budget.expenses.forEach((expense) => {
         value.textContent = Math.round(newValue) + " DKK";
 
     });
-
 });
