@@ -68,7 +68,6 @@ budget.expenses.forEach((expense) => {
     })
 
     input.addEventListener("input", (e) => {
-
         let newValue = Number(e.target.value);
         if (newValue > maxValue) {
             newValue = maxValue;  // Clamp the value to the maximum
@@ -83,7 +82,6 @@ budget.expenses.forEach((expense) => {
     });
 
     input.addEventListener("change", (e) => {
-
         const part = input.value / budget.totalIncome;
         expense.part = part;
 
@@ -94,9 +92,7 @@ budget.expenses.forEach((expense) => {
         if (newValue > maxValue) {
             // Clamp the value to the maximum
             newValue = maxValue;  
-        } else {
-
-        }
+        } 
 
         const x = getSliderX(input);
         const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
