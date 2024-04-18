@@ -80,7 +80,7 @@ budget.expenses.forEach((expense) => {
         }
 
         input.value = newValue;
-        value.textContent = newValue + " DKK";
+        value.textContent = Math.round(newValue) + " DKK";
 
     });
 
@@ -100,15 +100,14 @@ budget.expenses.forEach((expense) => {
             newValue = maxValue;  // Clamp the value to the maximum
         } else {
 
-            const x = getSliderX(input);
-            const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
-            input.style.background = color;
         }
 
+        const x = getSliderX(input);
+        const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
+        input.style.background = color;
+
         input.value = newValue;
-        value.textContent = newValue + " DKK";
-
-
+        value.textContent = Math.round(newValue) + " DKK";
 
     });
 
