@@ -4,6 +4,7 @@ const chartElement = document.getElementById("chart");
 const labels = budget.expenses.map(expense => expense.expenseName);
 labels.push("Surplus");
 
+// TODO: Put in bottom or sperate folder. Update Chart Data function. 
 const updateChartData = () => {
   const surplusPercentage = 1 - budget.expenses.reduce((prev, next) => prev + next.part, 0);
   const surplus = surplusPercentage * 100;
@@ -11,7 +12,7 @@ const updateChartData = () => {
   let dataPoints = budget.expenses.map(expense => expense.part * 100);
   dataPoints.push(surplus);
 
-  return dataPoints.map(part => part); // Returns rounded percentages
+  return dataPoints.map(part => part); 
 };
 
 // Initial data points setup
