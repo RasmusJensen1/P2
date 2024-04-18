@@ -2,6 +2,8 @@ const chartElement = document.getElementById("chart");
 
 // Define labels and initial data for the chart
 const labels = budget.expenses.map(expense => expense.expenseName);
+
+// Add the Surplus label, to the list of labels
 labels.push("Surplus");
 
 // Initial data points setup
@@ -12,8 +14,6 @@ let blueShades = ["#03045e","#0077b6", "#00b4d8", "#90e0ef", "#caf0f8", "#f6d55c
 
 // This is added to change the value of the field "Surplus" to green
 blueShades[dataPoints.length-1] = "#f2ff22";
-
-console.log(blueShades);
 
 // Chart configuration
 const config = {
