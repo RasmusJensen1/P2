@@ -92,12 +92,10 @@ budget.expenses.forEach((expense) => {
         surplusPercentage1 =
             1 - budget.expenses.reduce((prev, next) => prev + next.part, 0);
 
-        maxValue =
-            surplusPercentage1 * budget.totalIncome + Number(input.value);
-
         let newValue = Number(e.target.value);
         if (newValue > maxValue) {
-            newValue = maxValue;  // Clamp the value to the maximum
+            // Clamp the value to the maximum
+            newValue = maxValue;  
         } else {
 
         }

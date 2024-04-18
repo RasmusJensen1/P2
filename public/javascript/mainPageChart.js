@@ -32,7 +32,7 @@ const config = {
   options: {
     plugins: {
       datalabels: {
-        formatter: (value) => ((value / 100) * budget.totalIncome).toFixed(2) + ' kr.',
+        formatter: (value) => ((value / 100) * budget.totalIncome).toFixed(2) + ' DKK',
         anchor: 'end',
         clamp: true,
         align: 'start',
