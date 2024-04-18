@@ -9,7 +9,8 @@ function getCookie(name) {
 const user_login_cookie = getCookie("user_cookie");
 
 // The user_cookie is base64 encoded, so we need to decode it
-const loggedIn = user_login_cookie ? atob(user_login_cookie) : null; 
+const loggedIn = user_login_cookie ? atob(decodeURIComponent(user_login_cookie)) : null; 
+console.log(loggedIn);
 
 // We get the login-button div from the DOM
 const loginButton = document.getElementById("login-button")
