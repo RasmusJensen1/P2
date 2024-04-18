@@ -23,8 +23,6 @@ exports.login_post = [
       password: req.body.password,
     };
 
-    console.log(data);
-
     const user_login = await User.findOne({ username: data.username }).exec();
 
     if (!user_login) {
@@ -41,7 +39,7 @@ exports.login_post = [
 
     } else {
       const userCookie = btoa(JSON.stringify({ id:user_login._id,  username: user_login.username }))
-      res.cookie("user_cookie", userCookie,  { maxAge: 900000 }).redirect("/my-budgets");
+      res.cookie("user_cookie", userCookie,  { maxAge: 900000, encode: v => v }).redirect("/my-budgets");
     }
   }),
 ];
