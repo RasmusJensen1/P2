@@ -1,17 +1,10 @@
-
 const root = document.getElementById("slider-container");
 
-function calculate_dkk(part) {
-    return budget.totalIncome * part;
-}
+function createExpenses() {
+    // this is done to clear the slider container before adding the sliders
+    root.innerHTML = "";
 
-function getSliderX(input) {
-    return ((input.value - input.min) / (input.max - input.min)) * 100;
-}
-
-
-    let surplusPercentage1 =
-            1 - budget.expenses.reduce((prev, next) => prev + next.part, 0);
+let surplusPercentage1 = 1 - budget.expenses.reduce((prev, next) => prev + next.part, 0);
 
 budget.expenses.forEach((expense) => {
     // Create expense div
@@ -104,52 +97,57 @@ budget.expenses.forEach((expense) => {
     });
 });
 
-const addSlider = document.createElement("button");
+// A button to add a new expense
+const addExpenseButton = document.createElement("button");
 
-addSlider.setAttribute("id", "create-expense");
-addSlider.setAttribute("onclick", "openForm()");
+addExpenseButton.setAttribute("id", "create-expense");
+addExpenseButton.setAttribute("onclick", "openForm()");
 
-addSlider.textContent = "+";
+addExpenseButton.textContent = "+";
 
+root.appendChild(addExpenseButton);
+}
 
-root.appendChild(addSlider);
+// Initialize the expenses
+createExpenses();
 
 // Used to open pop up window to create new expense
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("create-popup").style.display = "block";
   }
 
 // Used to close pop up up window to create new expense
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
+    document.getElementById("create-popup").style.display = "none";
+}
 
-const expenseForm = document.getElementById("create-expense-form");
-
-expenseForm.addEventListener("submit", () => {
+function createExpense() {
     const expenseName = document.getElementById("expense-name").value;
-    const expenseCost = parseFloat(document.getElementById("expense-cost").value);
+    const cost = document.getElementById("expense-cost").value;
+    const part = cost / budget.totalIncome;
+    
+    const surplus = budget.expenses[budget.expenses.length - 1];
 
-    console.log(expenseName + expenseCost);
-
-    const newExpense = {
-        expenseName: expenseName,
-        part: expenseCost, 
-        _id: Math.random(), // just for now
-    };
-
-    budget.expenses.push(newExpense);
-    console.log(budget.expenses[4]);
-
-});
-
-console.log(budget.expenses);
+    budget.expenses[budget.expenses.length-1] = { expenseName, part };
+    budget.expenses.push(surplus);
+    createExpenses();
+    closeForm();
+    updateChartData();
+    updateChartLabels();
+}
 
 
 const totalIncomeInput = document.getElementById("input-income");
 
 totalIncomeInput.addEventListener("input", () => {
   budget.totalIncome = totalIncomeInput.value;
+  console.log(budget.totalIncome)
 });
 
-console.log(budget.totalIncome);
+function calculate_dkk(part) {
+    return budget.totalIncome * part;
+}
+
+function getSliderX(input) {
+    return ((input.value - input.min) / (input.max - input.min)) * 100;
+}
