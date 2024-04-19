@@ -1,24 +1,12 @@
 <main>
-  <div class="form-popup" id="create-popup">
-    <div class="form-container" id="create-expense-form">
 
-      <h2>Expense name</h2>
-      <input type="text" placeholder="Enter name" id="expense-name" required>
-
-      <h2>Cost</h2>
-      <input type="text" placeholder="Enter amount" id="expense-cost" required>
-
-      <button type="button" class="btn" id="create-expense-button" onclick="createExpense()">Create</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </div>
-  </div>
 
   <div class="column">
     <div id="left-container">
 
       <div id="income-container">
           <h2>Total income:</h2>
-          <input type="number" name="income" id="input-income" value="<%= budget.totalIncome %>" >
+          <input type="number" name="income" id="input-income" >
           <hr>
       </div>
 
@@ -33,5 +21,20 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- Pop up to create a new expense -->
+  <div class="form-popup" id="create-popup">
+    <div class="form-container" >
+
+      <h2>Expense name</h2>
+      <input type="text" placeholder="Enter name" id="expense-name" required>
+
+      <h2>Cost</h2>
+      <input type="number" placeholder="Enter amount" id="expense-cost" required>
+
+      <button type="button" class="btn" id="create-expense-button" onclick="createExpense()">Create</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </div>
   </div>
 </main>

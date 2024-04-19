@@ -162,7 +162,7 @@ hr {
   background-color: white;
 }
 
-.form-container input[type=text], .form-container input[type=password] {
+.form-container input{
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -170,7 +170,7 @@ hr {
   background: #f1f1f1;
 }
 
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+.form-container input:focus{
   background-color: #ddd;
   outline: none;
 }
