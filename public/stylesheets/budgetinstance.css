@@ -103,3 +103,19 @@
     flex-direction: column;
   }
 }
+
+/* CSS for download bottom */
+.download-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.upload-button {
+  display: none; /* Hide the button text */
+}
+
+.download-image {
+  width: 32px; /* Adjust the width and height of the image as needed */
+  height: 32px;
+}

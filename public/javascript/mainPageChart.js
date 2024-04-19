@@ -68,3 +68,37 @@ function updateChartData() {
 
   return dataPoints.map(part => part); 
 };
+
+// Download JSON file by clicking on the download icon
+
+// GET download button element
+const downloadButton = document.getElementById('downloadButton');
+
+// event listener for the download button
+downloadButton.addEventListener('click', handleDownloadButtonClick);
+
+// handle for the download button when clicked
+function handleDownloadButtonClick() {
+    
+  // chart configuration object into a JSON string 
+    const chartConfigJSON = JSON.stringify(config);
+
+    // Converting the JSON string into a data URI format
+    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(chartConfigJSON);
+
+    // Create a link element for downloading href
+    const downloadLink = document.createElement('a');
+    downloadLink.href = dataUri;
+    downloadLink.download = 'YourDownloadedBudget.json'; // file name for the downloaded the budget 
+
+    downloadLink.click();
+}
+
+// Download icon
+const downloadImage = document.querySelector('.download-image');
+
+// EventListener for the download icon so when clicked it downloads
+downloadImage.addEventListener('click', function() {
+    // Simulate a click on the hidden download button
+    downloadButton.click();
+});
