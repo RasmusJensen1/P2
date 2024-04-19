@@ -24,7 +24,7 @@ function createExpenses() {
 
         // Value of the slider
         const value = document.createElement("div");
-        value.textContent = calculate_dkk(expense.part) + " DKK";
+        value.textContent = Math.round(calculate_dkk(expense.part)) + " DKK";
 
         // Set class names for elements
         value.setAttribute("class", "show-value");
@@ -61,9 +61,6 @@ function createExpenses() {
             maxValue = surplusPercentage1 * budget.totalIncome + Number(input.value);
         })
 
-        totalIncomeInput.addEventListener('change', () => {
-            maxValue = surplusPercentage1 * budget.totalIncome + Number(input.value);
-        })
 
         input.addEventListener("input", (e) => {
             let newValue = Number(e.target.value);

@@ -38,7 +38,7 @@ totalIncomeInput.addEventListener("input", (e) => {
     // Store the old part as DKK
     const oldPartInDKK = budget.expenses.map(expense => ({
         ...expense,
-        part: expense.part * budget.totalIncome
+        part: Math.round(expense.part * budget.totalIncome)
      })
     );
 
