@@ -1,20 +1,39 @@
 <main>
+  <div class="form-popup" id="myForm">
+    <form class="form-container" id="create-expense-form">
+
+      <h2>Expense name</h2>
+      <input type="text" placeholder="Enter name" id="expense-name" required>
+
+      <h2>Cost</h2>
+      <input type="text" placeholder="Enter amount" id="expense-cost" required>
+
+      <button type="submit" class="btn">Create</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+
   <div class="column">
     <div id="left-container">
+
       <div id="income-container">
         <form id="budgetForm" action="/budgetinstance/<%= budget._id %>">
           <h2>Total income:</h2>
-          <input type="text" name="income" id="input-income" placeholder="5000">
+          <input type="text" name="income" id="input-income" placeholder="<%= budget.totalIncome %>" value="<%= budget.totalIncome %>">
           <hr>
-      </form>
-      
+        </form>
       </div>
-      <div id="slider-container"></div>
+
+      <div id="slider-container">
+      </div>
+
     </div>
+
     <div id="chart-container">
       <div id="chart-content">
         <canvas id="chart"></canvas>
       </div>
     </div>
+
   </div>
 </main>

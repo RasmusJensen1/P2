@@ -103,3 +103,53 @@ budget.expenses.forEach((expense) => {
 
     });
 });
+
+const addSlider = document.createElement("button");
+
+addSlider.setAttribute("id", "create-expense");
+addSlider.setAttribute("onclick", "openForm()");
+
+addSlider.textContent = "+";
+
+
+root.appendChild(addSlider);
+
+// Used to open pop up window to create new expense
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+
+// Used to close pop up up window to create new expense
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
+const expenseForm = document.getElementById("create-expense-form");
+
+expenseForm.addEventListener("submit", () => {
+    const expenseName = document.getElementById("expense-name").value;
+    const expenseCost = parseFloat(document.getElementById("expense-cost").value);
+
+    console.log(expenseName + expenseCost);
+
+    const newExpense = {
+        expenseName: expenseName,
+        part: expenseCost, 
+        _id: Math.random(), // just for now
+    };
+
+    budget.expenses.push(newExpense);
+    console.log(budget.expenses[4]);
+
+});
+
+console.log(budget.expenses);
+
+
+const totalIncomeInput = document.getElementById("input-income");
+
+totalIncomeInput.addEventListener("input", () => {
+  budget.totalIncome = totalIncomeInput.value;
+});
+
+console.log(budget.totalIncome);

@@ -33,13 +33,3 @@ function getCookie(name) {
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
-
-document.getElementById('input-income').addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
-      const income = this.value;
-      budget.totalIncome = income;
-
-      console.log("Income entered: " + income);
-      document.getElementById('budgetForm').submit();
-  }
-});
