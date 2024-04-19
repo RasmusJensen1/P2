@@ -112,10 +112,19 @@
 }
 
 .upload-button {
-  display: none; /* Hide the button text */
+  display: none; 
 }
 
 .download-image {
-  width: 32px; /* Adjust the width and height of the image as needed */
+  width: 32px; 
   height: 32px;
+  cursor: pointer;
+}
+
+#download-text {
+  position: fixed;
+  bottom: 25px;
+  right: 65px;
+  font-size: 25px;
+  cursor: pointer;
 }

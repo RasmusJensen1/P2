@@ -69,36 +69,42 @@ function updateChartData() {
   return dataPoints.map(part => part); 
 };
 
-// Download JSON file by clicking on the download icon
+// Download JSON file by clicking on the download icon or download text
 
-// GET download button element
+// Get download button element
 const downloadButton = document.getElementById('downloadButton');
+
+// Get download text element
+const downloadText = document.getElementById('download-text');
 
 // event listener for the download button
 downloadButton.addEventListener('click', handleDownloadButtonClick);
 
-// handle for the download button when clicked
+// event listener for the download text
+downloadText.addEventListener('click', handleDownloadButtonClick);
+
+// handling for the download button when it is clicked
 function handleDownloadButtonClick() {
-    
-  // chart configuration object into a JSON string 
-    const chartConfigJSON = JSON.stringify(config);
+  
+  // object into a JSON string 
+  const chartConfigJSON = JSON.stringify(config);
 
-    // Converting the JSON string into a data URI format
-    const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(chartConfigJSON);
+  // Converting the JSON string into a data URI format
+  const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(chartConfigJSON);
 
-    // Create a link element for downloading href
-    const downloadLink = document.createElement('a');
-    downloadLink.href = dataUri;
-    downloadLink.download = 'YourDownloadedBudget.json'; // file name for the downloaded the budget 
+  // Linking element with href
+  const downloadLink = document.createElement('a');
+  downloadLink.href = dataUri;
+  downloadLink.download = 'YourDownloadedBudget.json'; // file name for the downloaded the budget 
 
-    downloadLink.click();
+  downloadLink.click();
 }
 
 // Download icon
 const downloadImage = document.querySelector('.download-image');
 
-// EventListener for the download icon so when clicked it downloads
+// EventListener for the download icon or text so when clicked it downloads
 downloadImage.addEventListener('click', function() {
-    // Simulate a click on the hidden download button
-    downloadButton.click();
+  // clicks the hidden download button. Refer to css to see it is hidden
+  downloadButton.click();
 });
