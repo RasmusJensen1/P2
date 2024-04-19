@@ -1,6 +1,14 @@
 <main>
   <div class="column">
-    <div id="income-input">
+    <div id="left-container">
+      <div id="income-container">
+        <form id="budgetForm" action="/budgetinstance/<%= budget._id %>">
+          <h2>Total income:</h2>
+          <input type="text" name="income" id="input-income" placeholder="5000">
+          <hr>
+      </form>
+      
+      </div>
       <div id="slider-container"></div>
     </div>
     <div id="chart-container">

@@ -103,3 +103,23 @@
     flex-direction: column;
   }
 }
+
+#income-container {
+  height: 90px;
+  margin-left: 80px;
+  
+}
+
+#input-income {
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background-color: black;
+  margin-top: 5px;
+  width: 200px;
+}
