@@ -13,7 +13,7 @@ let dataPoints = updateChartData();
 let blueShades = ["#03045e","#0077b6", "#00b4d8", "#90e0ef", "#caf0f8", "#f6d55c", "#ed553b", "#e71d36", "#b80d57", "#721b65","#440a67","#2d0835","#0a043c","#f0f0f0","#d3d3d3","#a9a9a9","#7a7a7a","#4d4d4d","#000000"]
 
 // This is added to change the value of the field "Surplus" to green
-blueShades[dataPoints.length-1] = "#f2ff22";
+blueShades[dataPoints.length-1] = "#00C105";
 
 // Chart configuration
 const config = {
