@@ -103,3 +103,93 @@
     flex-direction: column;
   }
 }
+
+#income-container {
+  height: 90px;
+  margin-left: 80px;
+  
+}
+
+#input-income {
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  background-color: black;
+  margin-top: 5px;
+  width: 200px;
+}
+
+#create-expense {
+  background-color: white;
+  height: 90px;
+  width: 90px;
+  border: 4px solid;
+  border-radius: 50%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-wrap: nowrap;
+  padding: 20px;
+  cursor: pointer;
+  font-size: 70px;
+  font-weight: normal;
+  margin-right: 215px;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container input{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #3C67F4;;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: red;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
