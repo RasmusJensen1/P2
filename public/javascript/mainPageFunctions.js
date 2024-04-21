@@ -64,3 +64,4 @@ function calculate_dkk(part) {
 function getSliderX(input) {
     return ((input.value - input.min) / (input.max - input.min)) * 100;
 }
+
