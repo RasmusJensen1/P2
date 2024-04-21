@@ -31,7 +31,6 @@ function createExpenses() {
 
         // Set attributes for the delete expense button
         delete_image.setAttribute("src", "/images/trash_icon.png");
-        delete_image.setAttribute("id", expense.name + "-delete");
         delete_image.setAttribute("class", "delete-expense-button");
 
         // Set class names for elements
