@@ -70,8 +70,20 @@ exports.upload_budget_post = asyncHandler(async (req, res, next) => {
     return res.status(401).redirect("/login");
   }
   const user = JSON.parse(atob(decodeURIComponent(hasUser)));
+  const budget = req.body;
 
-  console.log(req.body);
+  try {
+    await Budget.create({
+      name: budget.name,
+      totalIncome: budget.totalIncome,
+      expenses: budget.expenses,
+      budgetType: budget.budgetType,
+      userId: user.id,
+      createdAt: budget.createdAt,
+    })
+  } catch (error) {
+    console.error("Error creating budget:", error); 
+  }
 
-  res.status(200);
+  res.status(200).json('Budget uploaded successfully');
 });
