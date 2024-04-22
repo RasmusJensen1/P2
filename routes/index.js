@@ -39,6 +39,9 @@ router.post("/sign-up", user_controller.signup_post);
 /* GET BudgetInstance */
 router.get("/budgetinstance/:id",budgetinstance_controller.budget_instance_get);
 
+/* POST remove budgets */
+router.post('/remove', budget_controller.budget_remove_post);
+
 /* POST budget instance */
 router.post("/budgetinstance/:id",budgetinstance_controller.budget_instance_post);
 

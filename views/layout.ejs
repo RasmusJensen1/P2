@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Expensia</title>
 
-    <link rel="stylesheet" href="/stylesheets/header.css" />
-    <% switch(title) { case 'Home': %>
-    <link rel="stylesheet" href="/stylesheets/home.css" />
-    <% break; case 'Create_budget': %>
-    <link rel="stylesheet" href="/stylesheets/uploadBudget.css" />
-    <% break; case 'Info': %>
-    <link rel="stylesheet" href="/stylesheets/info.css" />
-    <% break; case 'My_budgets': %>
-    <link rel="stylesheet" href="/stylesheets/mybudgets.css" />
-    <% break; case 'Login': %>
-    <link rel="stylesheet" href="/stylesheets/login.css" />
-    <% break; case 'Budget_instance': %>
-    <link rel="stylesheet" href="/stylesheets/budgetinstance.css" />
-    <% break; case 'Sign up': %>
-    <link rel="stylesheet" href="/stylesheets/login.css" />
-    <% break; default: %> <% break; } %>
-  </head>
+<head>
+  <title>Expensia</title>
 
-  <body>
-    <nav>
-      <label id="logo">
-        <a href="/home">Expensia</a>
-      </label>
-      <div id="menu-icon">&#9776;</div> <!-- Unicode for menu icon found on this page: https://graphemica.com/%E2%98%B0#html-entity-decimal -->
-      <ul id="nav-list" >
-        <li class="<%- title === 'Create_budget' ? 'active-page' : '' %>">
-          <a href="/create-budget">Create</a>
-        </li>
-        <li class="<%- title === 'My_budgets' ? 'active-page' : '' %>">
-          <a href="/my-budgets">My budgets</a>
-        </li>
-        <li class="<%- title === 'Info' ? 'active-page' : '' %>">
-          <a href="/info">Info</a>
-        </li>
-        <li id="login-button">
-          <!-- Look in main.js for this button -->
-        </li>
-      </ul>
-    </nav>
+  <link rel="stylesheet" href="/stylesheets/header.css" />
+  <% switch(title) { case 'Home' : %>
+  <link rel="stylesheet" href="/stylesheets/home.css" />
+  <% break; case 'Create_budget' : %>
+  <link rel="stylesheet" href="/stylesheets/uploadBudget.css" />
+  <% break; case 'Info' : %>
+  <link rel="stylesheet" href="/stylesheets/info.css" />
+  <% break; case 'My_budgets' : %>
+  <link rel="stylesheet" href="/stylesheets/mybudgets.css" />
+  <% break; case 'Login' : %>
+  <link rel="stylesheet" href="/stylesheets/login.css" />
+  <% break; case 'Budget_instance' : %>
+  <link rel="stylesheet" href="/stylesheets/budgetinstance.css" />
+  <% break; case 'Sign up' : %>
+  <link rel="stylesheet" href="/stylesheets/login.css" />
+  <% break; default: %>
+  <% break; } %>
+</head>
 
-    <%- body %> 
-    <script src="/javascript/main.js"></script>
-    <% switch(title) { case 'Budget_instance': %>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
-      integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+<body>
+  <nav>
+    <label id="logo">
+      <a href="/home">Expensia</a>
+    </label>
+    <ul>
+      <li class="<%- title === 'Create_budget' ? 'active-page' : '' %>">
+        <a href="/create-budget">Create</a>
+      </li>
+      <li class="<%- title === 'My_budgets' ? 'active-page' : '' %>">
+        <a href="/my-budgets">My budgets</a>
+      </li>
+      <li class="<%- title === 'Info' ? 'active-page' : '' %>">
+        <a href="/info">Info</a>
+      </li>
+      <li id="login-button">
+        <!-- Look in main.js for this button -->
+      </li>
+    </ul>
+  </nav>
 
-    <script type="text/javascript">
-      const budgetInstance = '<%- JSON.stringify(budget) %>';
-      let budget = JSON.parse(budgetInstance)
-    </script>
-    <script src="/javascript/mainPageFunctions.js"></script>
-    <script src="/javascript/mainPage.js"></script>
-    <script src="/javascript/mainPageChart.js"></script>
-    <% break; default: %> <% break; } %>
-  </body>
+  <%- body %>
+
+  <script src="/javascript/main.js"></script>
+  <% switch(title) { case 'Budget_instance' : %>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js"
+    integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="text/javascript">
+    const budgetInstance = '<%- JSON.stringify(budget) %>';
+    let budget = JSON.parse(budgetInstance)
+  </script>
+  <script src="/javascript/mainPage.js"></script>
+  <script src="/javascript/mainPageChart.js"></script>
+  <% break; case 'My_budgets' : %>
+  <script src="/javascript/myBudgets.js"></script>
+  <% break; default: %>
+  <% break; } %>
+</body>
 </html>
