@@ -32,6 +32,7 @@ exports.budget_instance_post = asyncHandler(async (req, res, next) => {
     );
   } catch (error) {
     console.error("Error updating budget:", error);
+    res.status(400).send(error);
   }
 
 });
