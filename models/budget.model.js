@@ -11,10 +11,6 @@ const budgetSchema = new Schema(
     totalIncome: {
       type: Number,
     },
-    totalExpense: {
-      type: Number,
-    },
-
     expenses: [
       {
         expenseName: String,
