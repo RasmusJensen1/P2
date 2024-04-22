@@ -9,10 +9,12 @@
   align-items: center;
   justify-content: center;
   z-index: 2;
+}
+
+.circle > p {
   overflow: hidden;
   text-overflow: ellipsis;
-  text-wrap: nowrap;
-  padding: 20px;
+  max-width: 70px;
 }
 
 .expense_div {

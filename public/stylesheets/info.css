@@ -67,13 +67,7 @@ h3 {
   margin-bottom: 20px;
 }
 
-
-.glos {
-  width:70%;
-}
-
 .glos-container{
-
   display: flex;
   flex-direction: column;
   align-items: center;

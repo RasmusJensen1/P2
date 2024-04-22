@@ -13,8 +13,11 @@ function createExpenses() {
 
         // Circle to contain the expense name
         const circle = document.createElement("div");
+        const circleText = document.createElement("p");
+        const circleHover = document.createElement("span");
         // Set the text content of the circle to the expense name
-        circle.textContent = expense.expenseName;
+        circleText.textContent = expense.expenseName;
+        circleHover.textContent = expense.expenseName;
 
         // Div to contain the input (range slider) and value
         const input_container = document.createElement("div");
@@ -35,7 +38,7 @@ function createExpenses() {
 
         // Set class names for elements
         value.setAttribute("class", "show-value");
-        circle.setAttribute("class", "circle");
+        circle.setAttribute("class", "circle tool-tip");
         expense_div.setAttribute("class", "expense_div");
         input_container.setAttribute("class", "input-container");
 
@@ -46,6 +49,10 @@ function createExpenses() {
         expense_div.appendChild(circle);
         expense_div.appendChild(input_container);
         expense_div.appendChild(delete_image);
+
+        // Add elements to the circle
+        circle.appendChild(circleText);
+        circle.appendChild(circleHover);
 
         // Add elements to the input container
         input_container.appendChild(input);
