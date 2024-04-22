@@ -52,16 +52,17 @@ totalIncomeInput.value = budget.totalIncome;
 totalIncomeInput.addEventListener("input", (e) => {
     e.preventDefault();
 
-
     if (totalIncomeInput.value < (1 - budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
         const expenseError = document.getElementById("expense-error");
         expenseError.style.display = "block";
         expenseError.textContent = "Total income is less than your added expenses, adjust expenses to complete this action";
+        
         closeForm();
 
         setTimeout(() => {
             expenseError.style.display = "none";
         }, 1500);
+
     } else {
         // Store the old part as DKK
         const oldPartInDKK = budget.expenses.map((expense) => ({
