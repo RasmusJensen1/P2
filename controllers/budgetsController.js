@@ -2,10 +2,18 @@ const asyncHandler = require("express-async-handler");
 const Budget = require("../models/budget.model");
 
 exports.my_budgets = asyncHandler(async (req, res, next) => {
-  const allBudgets = await Budget.find();
+  const hasUser = req.cookies.user_cookie;
+
+  if(!hasUser) {
+    return res.status(401).redirect("/login");
+  }
+  const user = JSON.parse(atob(decodeURIComponent(hasUser)));
+
+  const userBudgets = await Budget.find({userId: user.id});
+
   res.render("mybudgets", {
     title: "My_budgets",
-    budget_list: allBudgets,
+    budget_list: userBudgets,
   });
 });
 
@@ -18,7 +26,7 @@ exports.create_budget_get = (req, res) => {
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
   const hasUser = req.cookies.user_cookie;
   if(!hasUser) {
-    return res.status(401).send("Unauthorized");
+    return res.status(401).redirect("/login");
   }
   const user = JSON.parse(atob(decodeURIComponent(hasUser)));
 
