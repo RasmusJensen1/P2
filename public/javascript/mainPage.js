@@ -26,6 +26,13 @@ function createExpenses() {
         const value = document.createElement("div");
         value.textContent = Math.round(calculate_dkk(expense.part)) + " DKK";
 
+        // Delete expense tag
+        const delete_image = document.createElement("img");
+
+        // Set attributes for the delete expense button
+        delete_image.setAttribute("src", "/images/trash_icon.png");
+        delete_image.setAttribute("class", "delete-expense-button");
+
         // Set class names for elements
         value.setAttribute("class", "show-value");
         circle.setAttribute("class", "circle");
@@ -38,6 +45,7 @@ function createExpenses() {
         // Add the elements to the expense div
         expense_div.appendChild(circle);
         expense_div.appendChild(input_container);
+        expense_div.appendChild(delete_image);
 
         // Add elements to the input container
         input_container.appendChild(input);
@@ -97,6 +105,18 @@ function createExpenses() {
             value.textContent = Math.round(newValue) + " DKK";
 
         });
+
+        delete_image.addEventListener("click", () => {
+            let index = budget.expenses.findIndex(exp => exp.name === expense.name);
+            if (index !== -1) { // if index is found
+                budget.expenses.splice(index, 1);
+                expense_div.remove(); 
+                updateChart();
+            } else {
+                console.log("Expense not found");
+            }
+        });
+        
     });
 
     // A button to add a new expense
@@ -113,3 +133,19 @@ function createExpenses() {
 
 // Initialize the expenses
 createExpenses();
+
+
+function postRequest() {
+
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(budget),
+      headers: {
+          'Content-Type': 'application/json' 
+      },
+    };
+
+    const url = "/budgetinstance/" + budget._id;
+
+    fetch(url, options);
+}
