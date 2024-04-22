@@ -100,12 +100,12 @@ nav {
 }
 
 .login-button {
-  padding: 15px 35px;
+  padding: 10px 35px;
   background-color: #3C67F4;
   color: white!important;
   text-decoration: none;
-  border-radius: 50px;
-  font-size: 18px;
+  border-radius: 50px!important;
+  font-size: 18px!important;
   display: block;
 }
 
