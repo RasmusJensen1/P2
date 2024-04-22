@@ -117,3 +117,7 @@ exports.signup_post = [
     }
   }),
 ];
+
+exports.logout_get = (req, res, next) => {
+  res.clearCookie("user_cookie").redirect("/login");
+};

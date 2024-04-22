@@ -100,12 +100,12 @@ nav {
 }
 
 .login-button {
-  padding: 15px 35px;
+  padding: 10px 35px;
   background-color: #3C67F4;
   color: white!important;
   text-decoration: none;
-  border-radius: 50px;
-  font-size: 18px;
+  border-radius: 50px!important;
+  font-size: 18px!important;
   display: block;
 }
 
@@ -143,18 +143,21 @@ nav {
 
 /* -------------- Tool-tips -------------- */
 .tool-tip {
+  cursor: pointer;
+  position: relative;
+}
+
+.tool-tip-primary{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3C67F4;
   border-radius: 30px;
+  color: white;
+  font-size: 18px;
+  background-color: #3C67F4;
   width: 30px;
   height: 30px;
   padding: 10px;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  position: relative;
 }
 
 .tool-tip>span {
