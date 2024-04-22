@@ -62,3 +62,16 @@ exports.budget_remove_post = asyncHandler(async (req, res, next) => {
   
 
 });
+
+//Upload budget post 
+exports.upload_budget_post = asyncHandler(async (req, res, next) => {
+  const hasUser = req.cookies.user_cookie;
+  if(!hasUser) {
+    return res.status(401).redirect("/login");
+  }
+  const user = JSON.parse(atob(decodeURIComponent(hasUser)));
+
+  console.log(req.body);
+
+  res.status(200);
+});

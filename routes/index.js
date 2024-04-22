@@ -48,4 +48,8 @@ router.post('/remove', budget_controller.budget_remove_post);
 /* POST budget instance */
 router.post("/budgetinstance/:id",budgetinstance_controller.budget_instance_post);
 
+/* POST upload budget */
+router.post("/upload-budget", budget_controller.upload_budget_post), 
+
+
 module.exports = router;

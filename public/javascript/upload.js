@@ -1,24 +1,43 @@
 
 document.getElementById("fileToUpload").addEventListener("change", function(event) {
+    event.preventDefault();
     const file = event.target.files[0];
     
     const reader = new FileReader();
     
     reader.onload = function(e) {
-        const contents = e.target.result;
-        const jsonData = JSON.parse(contents);
+        const jsonData = e.target.result;
+    
         
-        // Tjek //fix data i download først 
+        // check in console for the right data
         console.log(jsonData);
+
+        uploadBugetJson(jsonData);
+        
+
+
     };
     
     reader.readAsText(file);
 });
 
-document.getElementById("upload-button").addEventListener("click", function(event) {
-   
-    event.preventDefault(); 
-});
 
 
+function uploadBugetJson(budget) {
 
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(budget),
+      headers: {
+          'Content-Type': 'application/json' 
+      },
+    };
+
+    const url = "/upload-budget"
+
+    fetch(url, options).then((res) => {
+        if(res.status === 401) {
+            alert("Must be logged in to upload."); 
+        }
+    });
+}
