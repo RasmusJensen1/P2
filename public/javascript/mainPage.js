@@ -164,6 +164,25 @@ function postRequest() {
     fetch(url, options).then((res) => {
         if(res.status === 401) {
             alert("Must be logged in to save. Download budget for later use."); 
+        } else {
+            const saved = document.getElementById("expense-error");
+ 
+            saved.style.color = "#00C105";
+            saved.style.display = "block";
+            saved.textContent = "Budget saved";
+            saved.style.fontSize = 20 + "px";
+            saved.style.position = "fixed";
+            saved.style.right = 420 + "px";
+            saved.style.bottom = 25 + "px";
+
+            setTimeout(() => {
+                saved.style.display = "none";
+                saved.style.color = "red";
+                saved.style.fontSize = 15 + "px";
+                saved.style.position = "relative";
+                saved.style.right = "";
+                saved.style.bottom = "";
+            }, 1500);
         }
     });
 }
