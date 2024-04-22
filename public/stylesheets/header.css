@@ -4,15 +4,6 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-nav a {
-  color: #000000;
-}
-
-#logo {
-  font-size: 45px;
-  font-weight: bold;
-}
-
 * {
   margin: 0;
   padding: 0px;
@@ -21,42 +12,104 @@ nav a {
   box-sizing: border-box;
 }
 
+#logo {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#logo a {
+  color: black;
+}
+
 nav {
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   height: 85px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px;
+  padding: 0px 20px;
   box-shadow: 2px 2px 4px 0px #dbdcdcc2;
   margin-bottom: 15px;
 }
 
-nav ul {
-  margin-right: 13px;
-  font-size: 30px;
+/* Styling for the nav items list */
+#nav-list {
+  list-style: none;
   display: flex;
   align-items: center;
-  gap: 25px;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
 }
 
-nav ul li {
-  display: inline-block;
-  margin: 0 20px;
+#nav-list li {
+  padding: 10px 20px;
+}
+
+#nav-list li a {
+  text-decoration: none;
+  font-size: 30px;
+  color: black;
+}
+
+.active-page {
+  font-weight: bold;
+}
+
+#menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* This is done to display the menu icon and not display the list of nav items.
+  The display of nav items is handled in main.js file
+*/
+@media screen and (max-width: 920px) {
+    #menu-icon {
+        display: block;
+    }
+
+    #nav-list {
+      flex-direction: column;
+      width: 100%;
+      display: none;
+      position: absolute;
+      top: 85px;
+      left: 0;
+      background-color: #fff;
+    }
+
+    #nav-list li {
+      width: 100%;
+      text-align: center;
+    }
+}
+
+/* This is done to force the display mode back to flex when scaling the site up again */
+@media screen and (min-width: 920px) {
+    #nav-list {
+        display: flex!important;
+    }
+
+    #menu-icon {
+        display: none;
+    }
+  
 }
 
 .login-button {
   padding: 15px 35px;
   background-color: #3C67F4;
-  color: white;
+  color: white!important;
   text-decoration: none;
   border-radius: 50px;
   font-size: 18px;
   display: block;
 }
 
-
+/* General button class */
 .butt {
   color: white;
   text-decoration: none;
@@ -65,6 +118,7 @@ nav ul li {
   border-radius: 24px;
 }
 
+/* Button with styled bavkground */
 .butt-primary {
   background-color: #3C67F4;
   padding: 15px 35px;
@@ -87,12 +141,6 @@ nav ul li {
   cursor: pointer;
 }
 
-
-.active-page {
-  font-weight: bold;
-}
-
-
 /* -------------- Tool-tips -------------- */
 .tool-tip {
   display: flex;
@@ -108,8 +156,6 @@ nav ul li {
   cursor: pointer;
   position: relative;
 }
-
-
 
 .tool-tip>span {
   visibility: hidden;

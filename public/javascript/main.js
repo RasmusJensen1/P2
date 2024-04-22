@@ -33,3 +33,15 @@ function getCookie(name) {
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(';').shift();
 }
+
+
+// Functionality to make the navbar responsive
+// Sets the display of the nav-list to block if it is none, and vice versa
+document.getElementById('menu-icon').addEventListener('click', () => {
+    let navList = document.getElementById('nav-list');
+    if (navList.style.display === 'block') {
+        navList.style.display = 'none';
+    } else {
+        navList.style.display = 'block';
+    }
+})

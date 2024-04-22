@@ -29,7 +29,8 @@ h3 {
 
 /* css for header "information */
 .create-button-info {
-  width: 110vh; 
+  width: 100%;
+  max-width: 1200px;
   height: 17vh; 
   border: 1px solid #115CF1;
   background-color: #3C67F4;
