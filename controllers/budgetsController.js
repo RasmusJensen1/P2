@@ -32,14 +32,14 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
 
   const data = {
     budgetName: req.body.name,
-    budgetStyle: req.body.budgetstyle,
+    type: req.body.budgetstyle,
     id: user.id,
   };
 
   try {
     await Budget.create({
       name: data.budgetName,
-      type: data.budgetStyle,
+      budgetType: data.type,
       userId: data.id
     });
   } catch (error) {
