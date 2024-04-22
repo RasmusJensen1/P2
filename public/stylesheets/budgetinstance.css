@@ -251,5 +251,5 @@ hr {
 #expense-error {
   color: red;
   font-weight: bold;
-  opacity: 0;
+  display: none;
 }

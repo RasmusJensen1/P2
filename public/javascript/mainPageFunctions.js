@@ -13,14 +13,14 @@ function createExpense() {
     if (!budget.totalIncome) {
         // Errorhandling: Income has not yet been input
         const expenseError = document.getElementById("expense-error");
-        expenseError.style.opacity = 1;
+        expenseError.style.display = "block";
         expenseError.textContent = "Must input total income before adding expenses";
         closeForm();
 
     } else if (document.getElementById("expense-cost").value > (1 - budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
         // Errorhandling: Expense surpases total income
         const expenseError = document.getElementById("expense-error");
-        expenseError.style.opacity = 1;
+        expenseError.style.display = "block";
         expenseError.textContent = "Cannot add expense that surpas total income";
         closeForm();
 
