@@ -36,7 +36,7 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
     try {
       await Budget.create({
         ...budget.budgetFile,
-        name: budget.budgetName ?? budget.budgetFile.name,
+        name: budget.budgetName || budget.budgetFile.name,
         budgetType: budget.budgetType,
         userId: user.id,
       });
@@ -70,30 +70,4 @@ exports.budget_remove_post = asyncHandler(async (req, res, next) => {
 
   res.status(400).send("No budgets selected");
   
-
-});
-
-//Upload budget post 
-exports.upload_budget_post = asyncHandler(async (req, res, next) => {
-  const hasUser = req.cookies.user_cookie;
-  if(!hasUser) {
-    return res.status(401).redirect("/login");
-  }
-  const user = JSON.parse(atob(decodeURIComponent(hasUser)));
-  const budget = req.body;
-
-  try {
-    await Budget.create({
-      name: budget.name,
-      totalIncome: budget.totalIncome,
-      expenses: budget.expenses,
-      budgetType: budget.budgetType,
-      userId: user.id,
-      createdAt: budget.createdAt,
-    })
-  } catch (error) {
-    console.error("Error creating budget:", error); 
-  }
-
-  res.status(200).json('Budget uploaded successfully');
 });

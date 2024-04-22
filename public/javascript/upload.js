@@ -15,12 +15,15 @@ document.getElementById("fileToUpload").addEventListener("change", function(even
 
 document.getElementById('create-butt').addEventListener('click', () => {
     // Remove prev id
-    delete budgetFileData._id;
+    if(budgetFileData) {
+        delete budgetFileData._id;
+    }
     const budget = {
         budgetName: document.getElementById('budget-name').value,
         budgetFile: budgetFileData,
         budgetType: document.getElementById('budgetstyle').value,
     }
+    console.log(budget);
 
     createBudgetPost(budget);
 
