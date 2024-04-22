@@ -24,7 +24,7 @@ else {
     const userName = loggedIn ? JSON.parse(loggedIn).username : null;
     loginLink.href = "/logout";
     loginLink.className = "butt login-button";
-    loginLink.textContent = `Welcome ${userName}`;
+    loginLink.textContent = `Logout ${userName}`;
 }
 
 // Cookies are seperated by ;. This function gets the cookie by name
