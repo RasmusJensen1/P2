@@ -1,3 +1,4 @@
+let budgetFileData;
 
 document.getElementById("fileToUpload").addEventListener("change", function(event) {
     const file = event.target.files[0];
@@ -5,18 +6,27 @@ document.getElementById("fileToUpload").addEventListener("change", function(even
     const reader = new FileReader();
 
     reader.onload = function(e) {
-        const budget = JSON.parse(e.target.result);
-        
-        uploadBugetJson(budget);
+        budgetFileData = JSON.parse(e.target.result);
     }
 
     reader.readAsText(file);
-
 });
 
 
+document.getElementById('create-butt').addEventListener('click', () => {
+    // Remove prev id
+    delete budgetFileData._id;
+    const budget = {
+        budgetName: document.getElementById('budget-name').value,
+        budgetFile: budgetFileData,
+        budgetType: document.getElementById('budgetstyle').value,
+    }
 
-function uploadBugetJson(budget) {
+    createBudgetPost(budget);
+
+})
+
+function createBudgetPost(budget) {
     const options = {
       method: 'POST',
       body: JSON.stringify(budget),
@@ -25,7 +35,7 @@ function uploadBugetJson(budget) {
       },
     };
 
-    const url = "/upload-budget"
+    const url = "/create-budget"
 
     fetch(url, options).then((res) => {
         if(res.status === 401) {

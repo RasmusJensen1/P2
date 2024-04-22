@@ -46,7 +46,8 @@ const chart = new Chart(chartElement, config);
 
 // Listen for changes in the budget data
 document.addEventListener('change', () => {
-  updateChart()
+  updateChart();
+  document.getElementById('not-saved').style.display = 'block';
 });
 
 document.getElementById("create-expense-button").addEventListener("click", () => {

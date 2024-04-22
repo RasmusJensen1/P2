@@ -145,6 +145,7 @@ nav {
 .tool-tip {
   cursor: pointer;
   position: relative;
+  z-index: 3;
 }
 
 .tool-tip-primary{

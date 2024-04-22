@@ -30,21 +30,31 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
   }
   const user = JSON.parse(atob(decodeURIComponent(hasUser)));
 
-  const data = {
-    budgetName: req.body.name,
-    type: req.body.budgetstyle,
-    id: user.id,
-  };
+  const budget = req.body
 
-  try {
-    await Budget.create({
-      name: data.budgetName,
-      budgetType: data.type,
-      userId: data.id
-    });
-  } catch (error) {
-    console.error("Error creating budget:", error);
+  if(budget.budgetFile){
+    try {
+      await Budget.create({
+        ...budget.budgetFile,
+        name: budget.budgetName ?? budget.budgetFile.name,
+        budgetType: budget.budgetType,
+        userId: user.id,
+      });
+    } catch (error) {
+      console.error("Error creating budget:", error);
+    }
+  } else {
+    try {
+      await Budget.create({
+        name: budget.budgetName,
+        budgetType: budget.budgetType,
+        userId: user.id
+      });
+    } catch (error) {
+      console.error("Error creating budget:", error);
+    }
   }
+
   res.redirect("/my-budgets");
 });
 

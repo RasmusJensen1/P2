@@ -166,6 +166,7 @@ function postRequest() {
             alert("Must be logged in to save. Download budget for later use."); 
         } else {
             const saved = document.getElementById("expense-error");
+            document.getElementById('not-saved').style.display = 'none';
  
             saved.style.color = "#00C105";
             saved.style.display = "block";
