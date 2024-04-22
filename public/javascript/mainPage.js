@@ -171,10 +171,10 @@ function postRequest() {
             saved.style.color = "#00C105";
             saved.style.display = "block";
             saved.textContent = "Budget saved";
-            saved.style.fontSize = 20 + "px";
+            saved.style.fontSize = 24 + "px";
             saved.style.position = "fixed";
-            saved.style.right = 420 + "px";
-            saved.style.bottom = 25 + "px";
+            saved.style.right = 320 + "px";
+            saved.style.bottom = 26 + "px";
 
             setTimeout(() => {
                 saved.style.display = "none";
