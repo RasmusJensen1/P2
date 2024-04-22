@@ -142,7 +142,7 @@ hr {
   cursor: pointer;
   font-size: 70px;
   font-weight: normal;
-  margin-right: 215px;
+  margin-right: 257px;
 }
 
 .form-popup {
@@ -192,4 +192,21 @@ hr {
 
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+#save-budget-btn {
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(113, 113, 113);
+}
+
+.delete-expense-button {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
