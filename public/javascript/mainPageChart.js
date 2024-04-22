@@ -72,16 +72,10 @@ function updateChartData() {
 // Download JSON file by clicking on the download icon or download text
 
 // Get download button element
-const downloadButton = document.getElementById('downloadButton');
-
-// Get download text element
-const downloadText = document.getElementById('download-text');
+const downloadButton = document.getElementById('download-text');
 
 // event listener for the download button
 downloadButton.addEventListener('click', handleDownloadButtonClick);
-
-// event listener for the download text
-downloadText.addEventListener('click', handleDownloadButtonClick);
 
 // handling for the download button when it is clicked
 function handleDownloadButtonClick() {

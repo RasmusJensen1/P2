@@ -107,8 +107,9 @@
 /* CSS for download bottom */
 .download-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 15px;
+  right: 15px;
+  display: flex!important;
 }
 
 .upload-button {
@@ -121,10 +122,20 @@
   cursor: pointer;
 }
 
-#download-text {
-  position: fixed;
-  bottom: 25px;
-  right: 65px;
-  font-size: 25px;
-  cursor: pointer;
+
+.butt {
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+  border: none;
+  border-radius: 24px;
+}
+
+.butt-primary {
+  background-color: #3C67F4;
+  padding: 10px 40px;
+  border-radius: 25px !important;
+  display: block;
+  font-size: 17px;
+  align-items: center;
 }
