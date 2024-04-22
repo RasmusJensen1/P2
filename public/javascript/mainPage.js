@@ -187,3 +187,37 @@ function postRequest() {
         }
     });
 }
+
+// Download JSON file by clicking on the download icon or download text
+
+// Get download button element
+const downloadButton = document.getElementById('download-text');
+
+// event listener for the download button
+downloadButton.addEventListener('click', handleDownloadButtonClick);
+
+// handling for the download button when it is clicked
+function handleDownloadButtonClick() {
+  
+  // object into a JSON string 
+  const chartConfigJSON = JSON.stringify(budget);
+
+  // Converting the JSON string into a data URI format
+  const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(chartConfigJSON);
+
+  // Linking element with href
+  const downloadLink = document.createElement('a');
+  downloadLink.href = dataUri;
+  downloadLink.download = budget.name; // file name for the downloaded the budget 
+
+  downloadLink.click();
+}
+
+// Download icon
+const downloadImage = document.querySelector('.download-image');
+
+// EventListener for the download icon or text so when clicked it downloads
+downloadImage.addEventListener('click', function() {
+  // clicks the hidden download button. Refer to css to see it is hidden
+  downloadButton.click();
+});
