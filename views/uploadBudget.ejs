@@ -4,25 +4,31 @@
 
     <div id="style-name-budget">
       <div>
-
-
-        <form method="post" for="name">
-          <h3 class="form-input">Name
-            <div class="tool-tip tool-tip-primary">
-              ?
-              <span class="tool-tip-text">
-                Type the name of your new budget.
-              </span>
-            </div>
-          </h3>
-          <br>
-          <input type="text" id="name" name="name" class="form-input" placeholder="">
-          <hr>
+        <form method="post">
+        <h3 class="form-input">
+          Name
+          <div class="tool-tip tool-tip-primary">
+            ?
+            <span class="tool-tip-text">
+              Type the name of your new budget.
+            </span>
+          </div>
+        </h3>
+        <br />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-input"
+          placeholder=""
+        />
+        <hr />
       </div>
 
       <div id="form-template">
         <label for="Basic template">
-          <h3 class="form-input">Budget style
+          <h3 class="form-input">
+            Budget style
             <div class="tool-tip tool-tip-primary">
               ?
               <span>Choose the type of budget you would like.</span>
@@ -33,11 +39,12 @@
           <option>Basic</option>
           <option>Other</option>
         </select>
-
       </div>
     </div>
 
-    <h3 class="form-input">Upload Budget<div class="tool-tip tool-tip-primary">
+    <h3 class="form-input">
+      Upload Budget
+      <div class="tool-tip tool-tip-primary">
         ?
         <span class="tool-tip-text">Upload a budget from your pc to edit.</span>
       </div>
@@ -50,17 +57,24 @@
         </label>
       </div>
       <div>
-        <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;">
-        <input type="submit" name="submit-button" value="Upload" style="display: none;">
+        <input
+          type="file"
+          name="fileToUpload"
+          id="fileToUpload"
+          style="display: none"
+        />
+        <input
+          type="submit"
+          name="submit-button"
+          value="Upload"
+          style="display: none"
+        />
       </div>
     </div>
 
-
     <button class="create-button" id="create-butt" name="Submit" type="Submit">
-      <h1 class="form-create">Create
-      </h1>
+      <h1 class="form-create">Create</h1>
     </button>
-
-    </form>
+  </form>
   </div>
 </div>

@@ -83,7 +83,6 @@ exports.signup_post = [
       repeatPassword: req.body.repeatPassword,
     };
 
-    console.log(newData);
 
     if (newData.newPassword !== newData.repeatPassword) {
       errors.errors.push({ msg: "Passwords do not match" });
