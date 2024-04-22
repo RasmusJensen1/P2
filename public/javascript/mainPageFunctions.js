@@ -26,8 +26,12 @@ function createExpense() {
 
     } else {
         // Get the expense name and cost from the input fields
-        const expenseName = document.getElementById("expense-name").value;
-        const cost = document.getElementById("expense-cost").value;
+        const expenseNameInput = document.getElementById("expense-name");
+        const costInput = document.getElementById("expense-cost");
+
+        // Get value
+        const expenseName = expenseNameInput.value;
+        const cost = costInput.value;
 
         // calculate the part of the total income the expense is
         const part = cost / budget.totalIncome;
@@ -35,11 +39,16 @@ function createExpense() {
         // Add the expense to the budget
         budget.expenses.push({ expenseName, part });
 
+
         // call the functions which renders all the expenses
         createExpenses();
 
         // close the pop up
         closeForm();
+
+        // clear fields
+        expenseNameInput.value = "";
+        costInput.value = "";
     }
 }
 

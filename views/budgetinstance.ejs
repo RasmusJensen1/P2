@@ -5,14 +5,13 @@
     <div id="left-container">
 
       <div id="income-container">
-        <h2>Total income:</h2>
+        <h2>Total income: <div class="tool-tip tool-tip-primary">? <span>Total income is a total of all income streams per month. Work, freelance, SU etc.</span></div></h2>
         <input type="number" name="income" id="input-income">
         <hr>
       </div>
 
       <div id="slider-container">
       </div>
-
     </div>
 
     <div id="chart-container">
@@ -27,7 +26,9 @@
     <h3 id="download-text">Download</h3>
     <img src="/images/download.png" alt="Download" class="download-image" />
   </a>
-</main>
+  <div id="not-saved">
+    <h1>Unsaved changes to budget!</h1>
+  </div>
 
   <!-- Pop up to create a new expense -->
   <div class="form-popup" id="create-popup">
@@ -43,4 +44,5 @@
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </div>
   </div>
+
 </main>
