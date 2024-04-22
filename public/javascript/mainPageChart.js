@@ -76,7 +76,7 @@ downloadButton.addEventListener('click', handleDownloadButtonClick);
 function handleDownloadButtonClick() {
   
   // object into a JSON string 
-  const chartConfigJSON = JSON.stringify(config);
+  const chartConfigJSON = JSON.stringify(budget);
 
   // Converting the JSON string into a data URI format
   const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(chartConfigJSON);
