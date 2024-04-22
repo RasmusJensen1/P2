@@ -5,9 +5,9 @@
     <div id="left-container">
 
       <div id="income-container">
-          <h2>Total income:</h2>
-          <input type="number" name="income" id="input-income" >
-          <hr>
+        <h2>Total income:</h2>
+        <input type="number" name="income" id="input-income">
+        <hr>
       </div>
 
       <div id="slider-container">
@@ -19,6 +19,9 @@
       <div id="chart-content">
         <canvas id="chart"></canvas>
       </div>
+      <form>
+        <button onclick="postRequest()" id="save-budget-btn">Save</button>
+      </form>
     </div>
 
   </div>
@@ -30,7 +33,7 @@
 
   <!-- Pop up to create a new expense -->
   <div class="form-popup" id="create-popup">
-    <div class="form-container" >
+    <div class="form-container">
 
       <h2>Expense name</h2>
       <input type="text" placeholder="Enter name" id="expense-name" required>
