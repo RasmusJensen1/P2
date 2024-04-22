@@ -107,7 +107,7 @@ function createExpenses() {
         });
 
         delete_image.addEventListener("click", () => {
-            let index = budget.expenses.findIndex(exp => exp._id === expense._id);
+            let index = budget.expenses.findIndex(exp => exp.name === expense.name);
             if (index !== -1) { // if index is found
                 budget.expenses.splice(index, 1);
                 expense_div.remove(); 

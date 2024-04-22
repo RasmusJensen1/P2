@@ -16,15 +16,23 @@ exports.create_budget_get = (req, res) => {
 };
 
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
+  const hasUser = req.cookies.user_cookie;
+  if(!hasUser) {
+    return res.status(401).send("Unauthorized");
+  }
+  const user = JSON.parse(atob(decodeURIComponent(hasUser)));
+
   const data = {
     budgetName: req.body.name,
     budgetStyle: req.body.budgetstyle,
+    id: user.id,
   };
 
   try{
     await Budget.create({
       name: data.budgetName,
-      type: data.budgetStyle
+      type: data.budgetStyle,
+      userId: data.id
     });
   } catch (error) {
     console.error("Error creating budget:", error);
