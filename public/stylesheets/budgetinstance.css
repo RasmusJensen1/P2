@@ -247,3 +247,9 @@ hr {
   margin-bottom: 5px;
   cursor: pointer;
 }
+
+#expense-error {
+  color: red;
+  font-weight: bold;
+  display: none;
+}

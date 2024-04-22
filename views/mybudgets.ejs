@@ -1,7 +1,6 @@
 <main>
   <div class="top-container">
     <button class="butt butt-primary" onclick="deleteSelectedBudgets()">Delete Selected</button>
-    <button class="butt butt-primary">Upload (icon)</button>
     <div class="tool-tip tool-tip-primary">
       ?
       <span id="tool-tip-text-mybudgets">You can upload your previously downloaded budgets here</span>
@@ -17,16 +16,16 @@
           <th>Style</th>
           <th>Last edited</th>
           <th>Date created</th>
+          <!-- This is done to make space for the edit icon -->
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <% let i=1; %>
-          <% budget_list.forEach((budget)=> { %>
+          <% budget_list.forEach((budget, index)=> { %>
             <tr>
               <td>
                 <input type="checkbox" class="checkbox" name="<%= budget._id %>" />
-                <%= i %>
+                <%= index+1 %>
               </td>
               <td>
                 <%= budget.name %>
@@ -45,7 +44,6 @@
               </td>
               <td><a href="/budgetinstance/<%= budget._id %>"><img src="/images/edit-button.png" id="edit-button"></a>
               </td>
-              <% i++; %>
                 <% }); %>
             </tr>
       </tbody>
