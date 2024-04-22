@@ -233,12 +233,8 @@ hr {
 }
 
 #save-budget-btn {
-  cursor: pointer;
   font-size: 25px;
-  font-weight: bold;
-  color: white;
-  border: none;
-}
+} 
 
 .delete-expense-button {
   width: 30px;
