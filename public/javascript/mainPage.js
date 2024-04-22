@@ -148,7 +148,6 @@ function postRequest() {
     const url = "/budgetinstance/" + budget._id;
 
     fetch(url, options).then((res) => {
-        console.log(res);
         if(res.status === 401) {
             alert("Must be logged in to save. Download budget for later use."); 
         }

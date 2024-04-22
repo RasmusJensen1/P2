@@ -9,11 +9,11 @@ exports.my_budgets = asyncHandler(async (req, res, next) => {
   }
   const user = JSON.parse(atob(decodeURIComponent(hasUser)));
 
-  const allBudgets = await Budget.find({userId: user.id});
+  const userBudgets = await Budget.find({userId: user.id});
 
   res.render("mybudgets", {
     title: "My_budgets",
-    budget_list: allBudgets,
+    budget_list: userBudgets,
   });
 });
 
