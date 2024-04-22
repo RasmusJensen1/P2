@@ -58,12 +58,5 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.post('/remove', (req, res) => {
-  const markedItems = req.body.markedItems;
-  // Implement logic to remove marked items from your data source
-  console.log('Marked items:', markedItems);
-  // Redirect back to the index page after removal
-  res.redirect('/');
-});
 
 module.exports = app;

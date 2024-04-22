@@ -1,6 +1,6 @@
 <main>
   <div class="top-container">
-    <button class="butt butt-primary">Delete Selected</button>
+    <button class="butt butt-primary" onclick="deleteSelectedBudgets()">Delete Selected</button>
     <button class="butt butt-primary">Upload (icon)</button>
     <div class="tool-tip">
       ?
@@ -25,7 +25,7 @@
           <% budget_list.forEach((budget)=> { %>
             <tr>
               <td>
-                <input type="checkbox" class="checkbox-enabled" name="<%= budget._id %>" />
+                <input type="checkbox" class="checkbox" name="<%= budget._id %>" />
                 <%= i %>
               </td>
               <td>
