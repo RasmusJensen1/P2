@@ -4,7 +4,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
-const {config} = require('dotenv')
+const { config } = require('dotenv')
 
 config();
 
@@ -56,6 +56,14 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
+});
+
+app.post('/remove', (req, res) => {
+  const markedItems = req.body.markedItems;
+  // Implement logic to remove marked items from your data source
+  console.log('Marked items:', markedItems);
+  // Redirect back to the index page after removal
+  res.redirect('/');
 });
 
 module.exports = app;
