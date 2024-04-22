@@ -142,9 +142,6 @@ function createExpenses() {
     expenseError.setAttribute("id", "expense-error");
 
     root.appendChild(expenseError);
-    
-    expenseError.textContent = "aoihfaoifo";
-
 
 }
 
