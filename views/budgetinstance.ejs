@@ -1,16 +1,45 @@
 <main>
+
+
   <div class="column">
-    <div id="income-input">
-      <div id="slider-container"></div>
+    <div id="left-container">
+
+      <div id="income-container">
+          <h2>Total income:</h2>
+          <input type="number" name="income" id="input-income" >
+          <hr>
+      </div>
+
+      <div id="slider-container">
+      </div>
+
     </div>
+
     <div id="chart-container">
       <div id="chart-content">
         <canvas id="chart"></canvas>
       </div>
     </div>
+
   </div>
   <a class="download-container butt butt-primary">
     <h3 id="download-text">Download</h3>
     <img src="/images/download.png" alt="Download" class="download-image" />
   </a>
+</main>
+
+  <!-- Pop up to create a new expense -->
+  <div class="form-popup" id="create-popup">
+    <div class="form-container" >
+
+      <h2>Expense name</h2>
+      <input type="text" placeholder="Enter name" id="expense-name" required>
+
+      <h2>Cost</h2>
+      <input type="number" placeholder="Enter amount" id="expense-cost" required>
+
+      <button type="button" class="btn" id="create-expense-button" onclick="createExpense()">Create</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </div>
+  </div>
 </main>
