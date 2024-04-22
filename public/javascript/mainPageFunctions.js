@@ -16,14 +16,16 @@ function createExpense() {
         expenseError.style.display = "block";
         expenseError.textContent = "Must input total income before adding expenses";
         closeForm();
-
-    } else if (document.getElementById("expense-cost").value > (1 - budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
+    } else if (
+        document.getElementById("expense-cost").value >
+        (1 - budget.expenses.reduce((prev, next) => prev + next.part, 0)) *
+        budget.totalIncome
+    ) {
         // Errorhandling: Expense surpases total income
         const expenseError = document.getElementById("expense-error");
         expenseError.style.display = "block";
         expenseError.textContent = "Cannot add expense that surpas total income";
         closeForm();
-
     } else {
         // Get the expense name and cost from the input fields
         const expenseNameInput = document.getElementById("expense-name");
@@ -59,6 +61,8 @@ totalIncomeInput.value = budget.totalIncome;
 totalIncomeInput.addEventListener("input", (e) => {
     e.preventDefault();
 
+    preventNegativeIncome();
+
     // Store the old part as DKK
     const oldPartInDKK = budget.expenses.map((expense) => ({
         ...expense,
@@ -85,4 +89,16 @@ function calculate_dkk(part) {
 
 function getSliderX(input) {
     return ((input.value - input.min) / (input.max - input.min)) * 100;
+}
+
+// Prevent user from inputting lower incomer than the sum of expenses
+function preventNegativeIncome() {
+    const expenseError = document.getElementById("expense-error");
+    if (totalIncomeInput.value < (budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
+        expenseError.style.display = "block";
+        expenseError.textContent = "Total income is less than your added expenses, adjust expenses to complete this action";
+        totalIncomeInput.value = budget.totalIncome;
+    } else {
+        expenseError.style.display = "none";
+    }
 }
