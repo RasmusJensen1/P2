@@ -36,6 +36,9 @@ router.get("/sign-up", user_controller.signup_get);
 /* POST signup */
 router.post("/sign-up", user_controller.signup_post);
 
+/* POST logout */
+router.get("/logout", user_controller.logout_get);
+
 /* GET BudgetInstance */
 router.get("/budgetinstance/:id",budgetinstance_controller.budget_instance_get);
 

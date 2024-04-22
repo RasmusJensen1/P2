@@ -22,7 +22,7 @@ if (!loggedIn) {
 // And the text will greet the user
 else {
     const userName = loggedIn ? JSON.parse(loggedIn).username : null;
-    loginLink.href = "/my-budgets";
+    loginLink.href = "/logout";
     loginLink.className = "butt login-button";
     loginLink.textContent = `Welcome ${userName}`;
 }
