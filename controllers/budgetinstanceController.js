@@ -14,20 +14,21 @@ exports.budget_instance_get = asyncHandler(async (req, res, next) => {
 
 exports.budget_instance_post = asyncHandler(async (req, res, next) => {
   const budget = req.body;
-  id = budget._id;
+  const hasUser = req.cookies.user_cookie;
+  if(!hasUser) {
+    return res.status(401).send("Unauthorized");
+  }
+  const user = JSON.parse(atob(decodeURIComponent(hasUser)));
+
 
   try {
     // Update the existing budget document if it exists
-    const updatedBudget = await Budget.findOneAndUpdate(
-      { _id: id },
-      { $set: { 
-        name: budget.name,
-        type: budget.budgetType,
-        totalIncome: budget.totalIncome,
-        totalExpense: budget.totalExpense,
-        expenses: budget.expenses,
-      }},
-      { new: true }
+    await Budget.findOneAndUpdate(
+      { _id: budget._id, userId: user.id},
+      { 
+        ...budget
+      },
+      { new: true, runValidators: true}
     );
   } catch (error) {
     console.error("Error updating budget:", error);
