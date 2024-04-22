@@ -10,23 +10,38 @@ function closeForm() {
 
 // Create new expense
 function createExpense() {
-    // Get the expense name and cost from the input fields
-    const expenseName = document.getElementById("expense-name").value;
-    const cost = document.getElementById("expense-cost").value;
+    if (!budget.totalIncome) {
+        // Errorhandling: Income has not yet been input
+        const expenseError = document.getElementById("expense-error");
+        expenseError.style.opacity = 1;
+        expenseError.textContent = "Must input total income before adding expenses";
+        closeForm();
 
-    // calculate the part of the total income the expense is
-    const part = cost / budget.totalIncome;
+    } else if (document.getElementById("expense-cost").value > (1 - budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
+        // Errorhandling: Expense surpases total income
+        const expenseError = document.getElementById("expense-error");
+        expenseError.style.opacity = 1;
+        expenseError.textContent = "Cannot add expense that surpas total income";
+        closeForm();
 
-    // Add the expense to the budget
-    budget.expenses.push({ expenseName, part });
+    } else {
+        // Get the expense name and cost from the input fields
+        const expenseName = document.getElementById("expense-name").value;
+        const cost = document.getElementById("expense-cost").value;
 
-    // call the functions which renders all the expenses
-    createExpenses();
+        // calculate the part of the total income the expense is
+        const part = cost / budget.totalIncome;
 
-    // close the pop up
-    closeForm();
+        // Add the expense to the budget
+        budget.expenses.push({ expenseName, part });
+
+        // call the functions which renders all the expenses
+        createExpenses();
+
+        // close the pop up
+        closeForm();
+    }
 }
-
 
 const totalIncomeInput = document.getElementById("input-income");
 
@@ -36,11 +51,10 @@ totalIncomeInput.addEventListener("input", (e) => {
     e.preventDefault();
 
     // Store the old part as DKK
-    const oldPartInDKK = budget.expenses.map(expense => ({
+    const oldPartInDKK = budget.expenses.map((expense) => ({
         ...expense,
-        part: Math.round(expense.part * budget.totalIncome)
-     })
-    );
+        part: Math.round(expense.part * budget.totalIncome),
+    }));
 
     // Change the total income to the value of the input field
     budget.totalIncome = totalIncomeInput.value;
@@ -48,14 +62,13 @@ totalIncomeInput.addEventListener("input", (e) => {
     // Calculate how large the old part as DKK is in relation to the new total income
     budget.expenses = oldPartInDKK.map((cost) => ({
         ...cost,
-        part: cost.part / budget.totalIncome
-     })
-    );
+        part: cost.part / budget.totalIncome,
+    }));
 });
 
-totalIncomeInput.addEventListener('change', (e) => {
+totalIncomeInput.addEventListener("change", (e) => {
     createExpenses();
-})
+});
 
 function calculate_dkk(part) {
     return budget.totalIncome * part;
@@ -64,4 +77,3 @@ function calculate_dkk(part) {
 function getSliderX(input) {
     return ((input.value - input.min) / (input.max - input.min)) * 100;
 }
-

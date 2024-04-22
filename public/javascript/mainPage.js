@@ -136,6 +136,16 @@ function createExpenses() {
 
     root.appendChild(addExpenseButton);
 
+    // Error message for creating expense
+    const expenseError = document.createElement("p");
+
+    expenseError.setAttribute("id", "expense-error");
+
+    root.appendChild(expenseError);
+    
+    expenseError.textContent = "aoihfaoifo";
+
+
 }
 
 // Initialize the expenses
