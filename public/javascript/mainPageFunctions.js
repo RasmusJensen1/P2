@@ -61,22 +61,28 @@ totalIncomeInput.value = budget.totalIncome;
 totalIncomeInput.addEventListener("input", (e) => {
     e.preventDefault();
 
-    preventNegativeIncome();
+    const expenseError = document.getElementById("expense-error");
+    if (totalIncomeInput.value < (budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
+        expenseError.style.display = "block";
+        expenseError.textContent = "Total income is less than your added expenses, adjust expenses to complete this action";
+        totalIncomeInput.value = budget.totalIncome;
+    } else {
+        expenseError.style.display = "none";
+        // Store the old part as DKK
+        const oldPartInDKK = budget.expenses.map((expense) => ({
+            ...expense,
+            part: Math.round(expense.part * budget.totalIncome),
+        }));
 
-    // Store the old part as DKK
-    const oldPartInDKK = budget.expenses.map((expense) => ({
-        ...expense,
-        part: Math.round(expense.part * budget.totalIncome),
-    }));
+        // Change the total income to the value of the input field
+        budget.totalIncome = totalIncomeInput.value;
 
-    // Change the total income to the value of the input field
-    budget.totalIncome = totalIncomeInput.value;
-
-    // Calculate how large the old part as DKK is in relation to the new total income
-    budget.expenses = oldPartInDKK.map((cost) => ({
-        ...cost,
-        part: cost.part / budget.totalIncome,
-    }));
+        // Calculate how large the old part as DKK is in relation to the new total income
+        budget.expenses = oldPartInDKK.map((cost) => ({
+            ...cost,
+            part: cost.part / budget.totalIncome,
+        }));
+    }
 });
 
 totalIncomeInput.addEventListener("change", (e) => {
@@ -89,16 +95,4 @@ function calculate_dkk(part) {
 
 function getSliderX(input) {
     return ((input.value - input.min) / (input.max - input.min)) * 100;
-}
-
-// Prevent user from inputting lower incomer than the sum of expenses
-function preventNegativeIncome() {
-    const expenseError = document.getElementById("expense-error");
-    if (totalIncomeInput.value < (budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
-        expenseError.style.display = "block";
-        expenseError.textContent = "Total income is less than your added expenses, adjust expenses to complete this action";
-        totalIncomeInput.value = budget.totalIncome;
-    } else {
-        expenseError.style.display = "none";
-    }
 }
