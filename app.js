@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-mongoose.set("strictQuery", false);
+mongoose.set("strictQuery", true);
 
 const mongoDB = process.env.MONGODB_URL;
 
