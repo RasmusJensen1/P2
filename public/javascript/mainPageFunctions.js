@@ -59,7 +59,6 @@ const totalIncomeInput = document.getElementById("input-income");
 totalIncomeInput.value = budget.totalIncome;
 
 totalIncomeInput.addEventListener("input", (e) => {
-    e.preventDefault();
 
     const expenseError = document.getElementById("expense-error");
     if (totalIncomeInput.value < (budget.expenses.reduce((prev, next) => prev + next.part, 0)) * budget.totalIncome) {
