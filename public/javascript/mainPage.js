@@ -92,7 +92,9 @@ function createExpenses() {
         });
 
         input.addEventListener("change", (e) => {
+            // Calculate part in relation to total income
             const part = input.value / budget.totalIncome;
+            // Set the expense part value
             expense.part = part;
 
             surplusPercentage1 =
