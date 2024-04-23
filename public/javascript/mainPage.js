@@ -152,7 +152,7 @@ createExpenses();
 
 
 function postRequest() {
-
+    // Fetch options
     const options = {
       method: 'POST',
       body: JSON.stringify(budget),
@@ -161,9 +161,11 @@ function postRequest() {
       },
     };
 
+    // Endpoint for saving the budget
     const url = "/budgetinstance/" + budget._id;
 
     fetch(url, options).then((res) => {
+        // Error handling
         if(res.status === 401) {
             alert("Must be logged in to save. Download budget for later use."); 
         } else {

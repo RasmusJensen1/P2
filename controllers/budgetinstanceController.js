@@ -20,16 +20,22 @@ exports.budget_instance_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.budget_instance_post = asyncHandler(async (req, res, next) => {
+  // Get budget data from the request body
   const budget = req.body;
+  // Check if there is a user_cookie
   const hasUser = req.cookies.user_cookie;
+
+  // If there is no user_cookie, return 401 Unauthorized
   if(!hasUser) {
     return res.status(401).send("Unauthorized");
   }
-  const user = JSON.parse(atob(decodeURIComponent(hasUser)));
 
+  // Decode user cookie
+  const user = JSON.parse(atob(decodeURIComponent(hasUser)));
 
   try {
     // Update the existing budget document if it exists
+    // and the user id matches the user id in the cookie
     await Budget.findOneAndUpdate(
       { _id: budget._id, userId: user.id},
       { 
@@ -38,9 +44,10 @@ exports.budget_instance_post = asyncHandler(async (req, res, next) => {
       { new: true, runValidators: true}
     );
   } catch (error) {
-    console.error("Error updating budget:", error);
+    // Send error message if there is an error updating the budget
+    res.status(400).json("Error updating budget");
+    return
   }
   
   res.status(200).json("Budget saved succesfully");
-
 });
