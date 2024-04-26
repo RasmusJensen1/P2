@@ -52,12 +52,16 @@ describe("Testing POST request for login", () => {
   });
 
   // expect status code 400 when login fails
-  test("Should respond with status code 400 when user is not found", async () => {
+  test("Should respond with status code 400 when user is not found in the database", async () => {
     const response = await request(app).post("/login").send({
       username: "wrongUsername",
       password: "wrongPassword",
     });
     expect(response.statusCode).toBe(400);
+
+    const user = await User.findOne({ username: 'wrongUsername' password: "wrongPassword" });
+    expect(user).toBeNull();
+
   });
 });
 
