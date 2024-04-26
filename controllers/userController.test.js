@@ -22,7 +22,7 @@ describe("Testing POST request for sign-up", () => {
 describe("Testing POST request for login", () => {
 
   // Tests for cookie to match username and cookie is successfully set
-  test("Cookie is set successfully", async () => {
+  test("Should set Cookie", async () => {
     const response = await request(app).post("/login").send({
       username: "testuser",
       password: "testpassword",
