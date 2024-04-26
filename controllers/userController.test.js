@@ -2,6 +2,7 @@ const user_controller = require("./userController");
 const asyncHandler = require("express-async-handler");
 const app = require("../app");
 const request = require("supertest");
+const { cookie } = require("express-validator");
 
 describe("Testing POST request for sign-up", () => {
   // Should save username and password to database
@@ -18,8 +19,6 @@ describe("Testing POST request for sign-up", () => {
     expect(response.statusCode).toBe(200)
   });
 });
-
-
 
 // Testing if user is added to database when signing up with new username and password and it redirects to login page
 test("Should respond with status code 302 for new user added and redirected", async () => {
@@ -114,10 +113,34 @@ test("Should respond with status code 200 because passwords does not match", asy
   expect(response.statusCode).toBe(200)
 });
 
-// User logout testing if cookies are cleared
-test("Should respond with repsonse usercookie", async () => {
-  const response = await request(app).get("/logout");
-  expect(response.cookies.user_cookies).toBe("");
+// User login testing if cookies have been cleared after logut 
+test("Should respond with user_cookies after logut", async () => {
+  const expectedCookie = ""
+  const response = await request(app).get("/logout")
+  const cookies = response.headers['set-cookie']
+
+  // Checking if the user_cookie is an empty string
+  expect(getCookie("user_cookie", cookies)).toBe(expectedCookie);
+
 });
 
 
+// User login testing if cookies have been received
+test("Should respond with user_cookies after login", async () => {
+  const expectedCookie = "eyJpZCI6IjY2MmI2YmI2MTY2MTkyNzEyNWE2ZmRiYSIsInVzZXJuYW1lIjoiQWxiZXJ0b0Rvc1NpbHZhIn0="
+  const response = await request(app).post("/login").send({
+    username: "AlbertoDosSilva",
+    password: "rasmusSeebach",
+  });
+  const cookies = response.headers['set-cookie']
+
+  // Checking if the user_cookie is present
+  expect(getCookie("user_cookie", cookies)).toBe(expectedCookie);
+
+});
+
+function getCookie(name, cookies) {
+  const value = `; ${cookies}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
