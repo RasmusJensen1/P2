@@ -30,9 +30,7 @@ describe("Testing POST request for login", () => {
 
     expect(response.header).toHaveProperty('set-cookie');
 
-    const setCookie = response.headers['set-cookie'];
-
-    const user = JSON.parse(atob(getCookie("user_cookie", setCookie)));
+    const user = JSON.parse(atob(getCookie("user_cookie", response.headers['set-cookie'])));
 
     expect(user.username).toEqual("testuser");
   });
