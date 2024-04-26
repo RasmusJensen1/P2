@@ -59,7 +59,7 @@ describe("Testing POST request for login", () => {
     });
     expect(response.statusCode).toBe(400);
 
-    const user = await User.findOne({ username: 'wrongUsername' password: "wrongPassword" });
+    const user = await User.findOne({ username: 'wrongUsername', password: "wrongPassword" });
     expect(user).toBeNull();
 
   });
