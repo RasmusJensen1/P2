@@ -73,7 +73,7 @@ describe("Testing POST request for sign-up", () => {
   });
 
   // NewPassword and ReapeatPassword do not match
-  test("Should respond with status code 400 because passwords does not match", async () => {
+  test("Should respond with status code 400 because passwords do not match", async () => {
     const response = await request(app).post("/sign-up").send({
       newUsername: "testusername",
       newPassword: "testpassword",
