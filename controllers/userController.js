@@ -112,7 +112,7 @@ exports.signup_post = [
         errors: errors.array(),
       });
     } else {
-      res.redirect("/login");
+      res.redirect(200, "/login");
     }
   }),
 ];
