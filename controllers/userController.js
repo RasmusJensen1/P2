@@ -32,14 +32,14 @@ exports.login_post = [
     }
 
     if (!errors.isEmpty()) {
-      res.render("login", {
+      res.status(400).send("Incorrect user").render("login", {
         title: "Login",
         errors: errors.array(),
       });
 
     } else {
       const userCookie = btoa(JSON.stringify({ id:user_login._id,  username: user_login.username }))
-      res.cookie("user_cookie", userCookie,  { maxAge: 9000000, encode: String }).redirect("/my-budgets");
+      res.status(200).cookie("user_cookie", userCookie,  { maxAge: 9000000, encode: String }).redirect("/my-budgets");
     }
   }),
 ];
