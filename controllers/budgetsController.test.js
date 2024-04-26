@@ -1,5 +1,7 @@
 const app = require("../app");
 const request = require("supertest");
+const Budget = require("../models/budget.model");
+const User = require("../models/user.model");
 
 describe("Testing POST request for create budget", () => {
 
@@ -7,30 +9,37 @@ describe("Testing POST request for create budget", () => {
         const response = await request(app)
         .post("/create-budget")
         .send({
-            budget: {
-                budgetName: "Test",
-                budgetType: "Test",
+             
+                budgetName: "Test0",
+                budgetType: "Basic",
                 budgetFile: undefined
-            }});
+            });
 
         expect(response.statusCode).toBe(401);
         expect(response.text).toBe("Unauthorized");
     });
 
     test("Is authenticated, should respond with status code 200, and text Budget saved succesfully", async () => {
+
+        const user = await User.findOne({ username: 'testuser', password: 'testpassword' });
+        const userCookie = btoa(JSON.stringify({ id: user._id, name: user.username })); 
+
+        const newBudget = {
+            budgetName: "Test",
+            budgetType: "Basic",
+            budgetFile: undefined
+        }
+
         const response = await request(app)
         .post("/create-budget")
-        .set('Cookie', 'user_cookie=eyJpZCI6IjY2MjBiZjRkNWVmMzQyMDdjOTUwZGMzMyIsIm5hbWUiOiJ0ZXN0dGVzdHRlc3QifQ==')
-        .send({
-            budget: {
-                budgetName: "Test",
-                budgetType: "Test",
-                budgetFile: undefined
-            }
-        });
+        .set('Cookie', `user_cookie=${userCookie}`)
+        .send(newBudget);
 
         expect(response.statusCode).toBe(200);
-        expect(response.text).toBe("Budget created succesfully");
+        expect(response.headers['location']).toBe("/my-budgets");
+
+        const budget = await Budget.findOne({ name: newBudget.budgetName, userId: user._id }); 
+        expect(budget).not.toBeNull();
     });
 
 });

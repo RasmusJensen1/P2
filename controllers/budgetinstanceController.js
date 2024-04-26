@@ -11,7 +11,7 @@ exports.budget_instance_get = asyncHandler(async (req, res, next) => {
 
     if (!budget) {
       // If budget is not found, return 400 Not Found
-      res.status(400).send("Budget not found");
+      res.redirect(400, '/my-budgets');
       return;
     }
 

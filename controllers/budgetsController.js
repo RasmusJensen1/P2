@@ -55,7 +55,7 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
     }
   }
 
-  res.status(200).send('Budget created succesfully');
+  res.redirect(200, '/my-budgets');
 });
 
 exports.budget_remove_post = asyncHandler(async (req, res, next) => {
