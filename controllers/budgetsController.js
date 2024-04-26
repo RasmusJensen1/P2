@@ -26,7 +26,7 @@ exports.create_budget_get = (req, res) => {
 exports.create_budget_post = asyncHandler(async (req, res, next) => {
   const hasUser = req.cookies.user_cookie;
   if(!hasUser) {
-    return res.status(401).redirect("/login");
+    return res.status(401).send("Unauthorized");
   }
   const user = JSON.parse(atob(decodeURIComponent(hasUser)));
 
@@ -55,7 +55,7 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
     }
   }
 
-  res.redirect("/my-budgets");
+  res.status(200).send('Budget created succesfully');
 });
 
 exports.budget_remove_post = asyncHandler(async (req, res, next) => {
