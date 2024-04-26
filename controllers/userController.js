@@ -39,7 +39,7 @@ exports.login_post = [
 
     } else {
       const userCookie = btoa(JSON.stringify({ id:user_login._id,  username: user_login.username }))
-      res.cookie("user_cookie", userCookie,  { maxAge: 9000000, encode: String }).redirect("/my-budgets");
+      res.cookie("user_cookie", userCookie,  { maxAge: 900000, encode: String }).redirect("/my-budgets");
     }
   }),
 ];
@@ -107,12 +107,12 @@ exports.signup_post = [
     }
 
     if (!errors.isEmpty()) {
-      res.render("login", {
+      res.status(400).render("login", {
         title: "Sign up",
         errors: errors.array(),
       });
     } else {
-      res.redirect(200, "/login");
+      res.redirect("/login");
     }
   }),
 ];
@@ -120,3 +120,5 @@ exports.signup_post = [
 exports.logout_get = (req, res, next) => {
   res.clearCookie("user_cookie").redirect("/login");
 };
+
+

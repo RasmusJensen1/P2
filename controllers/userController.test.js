@@ -24,8 +24,8 @@ describe("Testing POST request for sign-up", () => {
     expect(user).not.toBeNull();
   });
 
-  // Password to short
-  test("Should respond with status code 400 because password is to short", async () => {
+  // Password too short
+  test("Should respond with status code 400 because password is too short", async () => {
     const newUsername = makeid(2);
     const newPassword = makeid(2);
 
@@ -38,8 +38,8 @@ describe("Testing POST request for sign-up", () => {
     expect(response.statusCode).toBe(400);
   });
 
-  // Password to long
-  test("Should respond with status code 400 because password is to long", async () => {
+  // Password too long
+  test("Should respond with status code 400 because password is too long", async () => {
     const newUsername = makeid(50);
     const newPassword = makeid(50);
 
