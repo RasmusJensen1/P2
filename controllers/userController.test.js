@@ -37,7 +37,7 @@ describe("Testing POST request for login", () => {
     expect(user.username).toEqual("testuser");
   });
 
-  // expect status code 302 when login succeeds and redirected to "/my-budgets"
+  // expect status code 302 when login succeeds
   test("Should respond with status code 302 when login succeeds and user found in the database", async () => {
     const response = await request(app).post("/login").send({
       username: "testuser",
@@ -46,6 +46,7 @@ describe("Testing POST request for login", () => {
     expect(response.headers.location).toBe("/my-budgets");
     expect(response.statusCode).toBe(302);
 
+    // Ensure user was found in the database
     const user = await User.findOne({ username: 'testuser' });
     expect(user).not.toBeNull();
   });
