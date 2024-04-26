@@ -21,7 +21,7 @@ beforeEach(async () => {
     const user = await User.create({ username: 'testuser', password: 'testpassword' });
 
     await Budget.deleteMany({}).exec();
-    await Budget.create({ name: 'testBudgetName', budgetType: 'Basic', userId: user._id, totalIncome: 1000, expenses: [{ expenseName: 'Rent', part: 0.5 }, { expenseName: 'Food', part: 0.2 }] });
+    await Budget.create({ name: 'testBudgetName', budgetType: 'Basic', userId: user._id.toString(), totalIncome: 1000, expenses: [{ expenseName: 'Rent', part: 0.5 }, { expenseName: 'Food', part: 0.2 }] });
 
 });
 
