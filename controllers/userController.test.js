@@ -3,10 +3,10 @@ const request = require("supertest");
 const User = require("../models/user.model");
 
 describe("Testing POST request for sign-up", () => {
-  // Testing if user is added to database when signing up with new username and password and it redirects to login page
+  // User should be added to database when signing up with new username and password and it redirects to login page
   test("Should respond with status code 302 for new user added and redirected", async () => {
-    const newUsername = makeid(10);
-    const newPassword = makeid(10);
+    const newUsername = generateString(10);
+    const newPassword = generateString(10);
 
     const response = await request(app).post("/sign-up").send({
       newUsername: newUsername,
@@ -26,8 +26,8 @@ describe("Testing POST request for sign-up", () => {
 
   // Password too short
   test("Should respond with status code 400 because password is too short", async () => {
-    const newUsername = makeid(2);
-    const newPassword = makeid(2);
+    const newUsername = generateString(2);
+    const newPassword = generateString(2);
 
     const response = await request(app).post("/sign-up").send({
       newUsername: newUsername,
@@ -40,8 +40,8 @@ describe("Testing POST request for sign-up", () => {
 
   // Password too long
   test("Should respond with status code 400 because password is too long", async () => {
-    const newUsername = makeid(50);
-    const newPassword = makeid(50);
+    const newUsername = generateString(50);
+    const newPassword = generateString(50);
 
     const response = await request(app).post("/sign-up").send({
       newUsername: newUsername,
@@ -72,7 +72,7 @@ describe("Testing POST request for sign-up", () => {
     expect(response.statusCode).toBe(400);
   });
 
-  // NewPassword and ReapeatPassword doesnt match
+  // NewPassword and ReapeatPassword do not match
   test("Should respond with status code 400 because passwords does not match", async () => {
     const response = await request(app).post("/sign-up").send({
       newUsername: "testusername",
@@ -98,19 +98,12 @@ describe("Testing POST request for sign-up", () => {
   });
 });
 
-// User login testing if cookies have been cleared after logut
-function getCookie(name, cookies) {
-  const value = `; ${cookies}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-}
-
 // random string for newUsername and newPassword
-function makeid(length) {
-  var result = "";
-  var characters =
+function generateString(length) {
+  let result = "";
+  const characters =
     "ABCDEFGHIJKLMOWADAKJSNASDabcdefghijklmnopqrstuvwxyz0123456789";
-  var charactersLength = characters.length;
+  const charactersLength = characters.length;
   for (var i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
