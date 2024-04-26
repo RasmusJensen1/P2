@@ -12,9 +12,9 @@ describe("Testing POST request for sign-up", () => {
 // User already exist
   test("Should respond with status code 200 because user already exists", async () => {
     const response = await request(app).post("/sign-up").send({
-      newUsername: "Testuser12345",
-      newPassword: "Testuser12345",
-      repeatPassword: "Testuser12345",
+      newUsername: "testuser",
+      newPassword: "testpassword",
+      repeatPassword: "testpassword",
     });
     expect(response.statusCode).toBe(200)
   });
@@ -86,9 +86,9 @@ test("Should respond with status code 200 because password is to long", async ()
 // Whitespace username
 test("Should respond with status code 200 because username contains whitespace", async () => {
   const response = await request(app).post("/sign-up").send({
-    newUsername: "Testuser 12345",
-    newPassword: "rasmusSeebach",
-    repeatPassword: "rasmusSeebach",
+    newUsername: "test user",
+    newPassword: "testpassword",
+    repeatPassword: "testpassword",
   });
   expect(response.statusCode).toBe(200)
 });
@@ -96,9 +96,9 @@ test("Should respond with status code 200 because username contains whitespace",
 // Whitespace password
 test("Should respond with status code 200 because password contains whitespace", async () => {
   const response = await request(app).post("/sign-up").send({
-    newUsername: "Testuser12345",
-    newPassword: "rasmus Seebach",
-    repeatPassword: "rasmus Seebach",
+    newUsername: "testuser",
+    newPassword: "test password",
+    repeatPassword: "test password",
   });
   expect(response.statusCode).toBe(200)
 });
@@ -106,9 +106,9 @@ test("Should respond with status code 200 because password contains whitespace",
 // NewPassword and ReapeatPassword doesnt match
 test("Should respond with status code 200 because passwords does not match", async () => {
   const response = await request(app).post("/sign-up").send({
-    newUsername: "Testuser12345",
-    newPassword: "Testuser12345",
-    repeatPassword: "NotTheSamePassword",
+    newUsername: "testuser",
+    newPassword: "testpassword",
+    repeatPassword: "notmatchingpassword",
   });
   expect(response.statusCode).toBe(200)
 });
@@ -127,10 +127,10 @@ test("Should respond with user_cookies after logut", async () => {
 
 // User login testing if cookies have been received
 test("Should respond with user_cookies after login", async () => {
-  const expectedCookie = "eyJpZCI6IjY2MmI5MmRhZjYxYjM2YjlhOTM2NDM1ZiIsInVzZXJuYW1lIjoiVGVzdHVzZXIxMjM0NSJ9"
+  const expectedCookie = "eyJpZCI6IjY2MmI5NDg2Mjg0NGU5ZTY4YTNlMTMwNCIsInVzZXJuYW1lIjoidGVzdHVzZXIifQ=="
   const response = await request(app).post("/login").send({
-    username: "Testuser12345",
-    password: "Testuser12345",
+    username: "testuser",
+    password: "testpassword",
   });
   const cookies = response.headers['set-cookie']
 
