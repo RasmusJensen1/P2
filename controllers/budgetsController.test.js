@@ -26,7 +26,8 @@ describe("Testing POST request for create budget", () => {
                 budgetName: "Test",
                 budgetType: "Test",
                 budgetFile: undefined
-            }});
+            }
+        });
 
         expect(response.statusCode).toBe(200);
         expect(response.text).toBe("Budget created succesfully");
