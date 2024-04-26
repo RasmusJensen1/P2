@@ -39,7 +39,7 @@ exports.login_post = [
 
     } else {
       const userCookie = btoa(JSON.stringify({ id:user_login._id,  username: user_login.username }))
-      res.status(200).cookie("user_cookie", userCookie,  { maxAge: 9000000, encode: String }).redirect("/my-budgets");
+      res.cookie("user_cookie", userCookie,  { maxAge: 9000000, encode: String }).redirect("/my-budgets");
     }
   }),
 ];
