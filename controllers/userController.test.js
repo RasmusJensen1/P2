@@ -81,6 +81,21 @@ describe("Testing POST request for sign-up", () => {
     });
     expect(response.statusCode).toBe(400);
   });
+
+  test("Should respond with status code 400 because username is already in the database", async () => {
+    const response = await request(app).post("/sign-up").send({
+      newUsername: "testuser",
+      newPassword: "testpassword",
+      repeatPassword: "testpassword",
+    });
+    expect(response.statusCode).toBe(400);
+
+    const user = await User.findOne({
+      username: "testuser",
+    });
+    expect(user).not.toBeNull();
+    expect(user.username).toEqual("testuser");
+  });
 });
 
 // User login testing if cookies have been cleared after logut
