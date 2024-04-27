@@ -24,7 +24,7 @@ describe("Testing GET request for /budgetinstance/:id", () => {
      // 661e7db82f305c0bf9fcb290 is not a budget id in our database	
       const response = await request(app).get("/budgetinstance/661e7db82f305c0bf9fcb290");	
       expect(response.statusCode).toBe(400);	
-      expect(response.headers['location']).toBe("/my-budgets");
+      expect(response.headers.location).toBe("/my-budgets");
     });	
 
     // Test the "/budgetinstance/:id" GET route where there is an error	

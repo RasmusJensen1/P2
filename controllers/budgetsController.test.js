@@ -31,7 +31,7 @@ describe("Testing POST request for create budget", () => {
         .send(newBudget);
 
         expect(response.statusCode).toBe(200);
-        expect(response.headers['location']).toBe("/my-budgets");
+        expect(response.headers.location).toBe("/my-budgets");
 
         const budget = await Budget.findOne({ name: newBudget.budgetName, userId: user._id }); 
         expect(budget).not.toBeNull();
