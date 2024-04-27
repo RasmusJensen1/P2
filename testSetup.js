@@ -12,6 +12,8 @@ beforeAll(async () => {
 
     // Does this to connect app to the memory database
     process.env.MONGODB_URL = mongoUri;
+
+    await mongoose.connect(mongoUri);
 });
 
 

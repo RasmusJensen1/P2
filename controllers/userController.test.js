@@ -11,7 +11,7 @@ describe("Testing POST request for sign-up", () => {
       newPassword: "testpassword",
       repeatPassword: "testpassword",
     });
-    expect(response.statusCode).toBe(200)
+    expect(response.statusCode).toBe(302)
 
   // Ensure the user was saved in the database
   const user = await User.findOne({ username: 'testusername' });

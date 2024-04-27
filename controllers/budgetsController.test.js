@@ -8,7 +8,7 @@ describe("Testing POST request for create budget", () => {
     test("Is not authenticated, should respond with status code 401", async () => {
             const response = await request(app)
             .post("/create-budget")
-            .send({ budgetName: "Gamer", budgetType: "Basic", budgetFile: undefined});
+            .send({ budgetName: "Test", budgetType: "Basic", budgetFile: undefined});
     
             expect(response.statusCode).toBe(401);
             expect(response.text).toBe("Unauthorized");
