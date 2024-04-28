@@ -7,6 +7,7 @@
 var app = require("../app");
 var debug = require("debug")("p2:server");
 var http = require("http");
+const mongoose = require("mongoose");
 
 /**
  * Get port from environment and store in Express.
@@ -14,6 +15,19 @@ var http = require("http");
 
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
+
+mongoose.set("strictQuery", true);
+
+const mongoDB = process.env.MONGODB_URL;
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
+const connection = mongoose.connection;
+connection.once("open", () => console.log("Connected to MongoDB database"));
+
 
 /**
  * Create HTTP server.
@@ -65,11 +79,9 @@ function onError(error) {
     case "EACCES":
       console.error(bind + " requires elevated privileges");
       process.exit(1);
-      break;
     case "EADDRINUSE":
       console.error(bind + " is already in use");
       process.exit(1);
-      break;
     default:
       throw error;
   }

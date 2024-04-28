@@ -7,7 +7,6 @@ const { config } = require('dotenv')
 
 config();
 
-const mongoose = require("mongoose");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -24,18 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-mongoose.set("strictQuery", true);
 
-const mongoDB = process.env.MONGODB_URL;
-
-main().catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(mongoDB);
-}
-
-const connection = mongoose.connection;
-
-connection.once("open", () => console.log("Connected to MongoDB database"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
