@@ -32,7 +32,7 @@ exports.login_post = [
     }
 
     if (!errors.isEmpty()) {
-      res.render("login", {
+      res.status(400).render("login", {
         title: "Login",
         errors: errors.array(),
       });

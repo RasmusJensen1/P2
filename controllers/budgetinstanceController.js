@@ -8,6 +8,13 @@ exports.budget_instance_get = asyncHandler(async (req, res, next) => {
   try {
     // Find the budget document by id
     const budget = await Budget.findById(id).exec();
+
+    if (!budget) {
+      // If budget is not found, return 400 Not Found
+      res.redirect(400, '/my-budgets');
+      return;
+    }
+
     // Render budgetinstance view
     // with found budget data
     res.render("budgetinstance", {
@@ -15,7 +22,8 @@ exports.budget_instance_get = asyncHandler(async (req, res, next) => {
       budget: budget,
     });
   } catch (error) {
-    res.status(404).send("Budget not found");  
+    // If there is an error, return 404 Not Found
+    res.status(404).send("Error getting budget: " + error);  
   }
 });
 

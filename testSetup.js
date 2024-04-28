@@ -13,16 +13,17 @@ beforeAll(async () => {
     // Does this to connect app to the memory database
     process.env.MONGODB_URL = mongoUri;
 
+    await mongoose.connect(mongoUri);
 });
 
 
 beforeEach(async () => {
     // Clear the database before each test
-    await User.deleteMany({});
+    await User.deleteMany({}).exec();
     const user = await User.create({ username: 'testuser', password: 'testpassword' });
 
-    await Budget.deleteMany({});
-    await Budget.create({ name: 'testbudget', budgetType: 'Basic', userId: user._id, totalIncome: 1000, expenses: [{ expenseName: 'Rent', part: 0.5 }, { expenseName: 'Food', part: 0.2 }] });
+    await Budget.deleteMany({}).exec();
+    await Budget.create({ name: 'testBudgetName', budgetType: 'Basic', userId: user._id.toString(), totalIncome: 1000, expenses: [{ expenseName: 'Rent', part: 0.5 }, { expenseName: 'Food', part: 0.2 }] });
 
 });
 
