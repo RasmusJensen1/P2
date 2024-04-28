@@ -19,4 +19,52 @@ describe("Testing POST request for sign-up", () => {
   });
 });
 
+describe("Testing POST request for login", () => {
 
+  // Tests for cookie to match username and cookie is successfully set
+  test("Should set Cookie", async () => {
+    const response = await request(app).post("/login").send({
+      username: "testuser",
+      password: "testpassword",
+    });
+
+    expect(response.header).toHaveProperty('set-cookie');
+
+    const user = JSON.parse(atob(getCookie("user_cookie", response.headers['set-cookie'])));
+
+    expect(user.username).toEqual("testuser");
+  });
+
+  // expect status code 302 when login succeeds
+  test("Should respond with status code 302 when login succeeds and user found in the database", async () => {
+    const response = await request(app).post("/login").send({
+      username: "testuser",
+      password: "testpassword",
+    });
+    expect(response.headers.location).toBe("/my-budgets");
+    expect(response.statusCode).toBe(302);
+
+    // Ensure user was found in the database
+    const user = await User.findOne({ username: 'testuser' });
+    expect(user).not.toBeNull();
+  });
+
+  // expect status code 400 when login fails
+  test("Should respond with status code 400 when user is not found in the database", async () => {
+    const response = await request(app).post("/login").send({
+      username: "wrongUsername",
+      password: "wrongPassword",
+    });
+    expect(response.statusCode).toBe(400);
+
+    const user = await User.findOne({ username: 'wrongUsername', password: "wrongPassword" });
+    expect(user).toBeNull();
+
+  });
+});
+
+function getCookie(name, cookie) {
+    const value = `; ${cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
