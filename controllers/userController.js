@@ -107,7 +107,7 @@ exports.signup_post = [
     }
 
     if (!errors.isEmpty()) {
-      res.render("login", {
+      res.status(400).render("login", {
         title: "Sign up",
         errors: errors.array(),
       });
@@ -120,3 +120,5 @@ exports.signup_post = [
 exports.logout_get = (req, res, next) => {
   res.clearCookie("user_cookie").redirect("/login");
 };
+
+
