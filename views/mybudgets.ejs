@@ -21,28 +21,29 @@
         </tr>
       </thead>
       <tbody>
-          <% budget_list.forEach((budget, index)=> { %>
-            <tr>
+          <% 
+          budget_list.forEach((budget, index)=> { %>
+            <tr class="budget-row" >
               <td>
                 <input type="checkbox" class="checkbox" name="<%= budget._id %>" />
                 <%= index+1 %>
               </td>
-              <td>
+              <td >
                 <%= budget.name %>
               </td>
-              <td>
+              <td >
                 <%= budget.totalIncome %> dkk
               </td>
-              <td>
+              <td >
                 <%= budget.budgetType %>
               </td>
-              <td>
+              <td >
                 <%= new Date(budget.updatedAt).toLocaleDateString() %>
               </td>
-              <td>
+              <td >
                 <%= new Date(budget.createdAt).toLocaleDateString() %>
               </td>
-              <td><a href="/budgetinstance/<%= budget._id %>"><img src="/images/edit-button.png" id="edit-button"></a>
+              <td ><a id="edit-a-tag" href="/budgetinstance/<%= budget._id %>"><img src="/images/edit-button.png" id="edit-button"></a>
               </td>
             </tr>
           <% }); %>

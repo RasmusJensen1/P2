@@ -44,7 +44,11 @@ function createBudgetPost(budget) {
         if(res.status === 401) {
             alert("Must be logged in to upload."); 
             window.location.href = "/login";
-        } 
+        } else if(res.status === 200) {
+            window.location.href = "/my-budgets";
+        } else if(res.status === 400) {
+            alert("Error creating budget.");
+        }
         
     });
 }

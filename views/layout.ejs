@@ -29,12 +29,14 @@
       <div id="menu-icon">&#9776;</div>
       <!-- Unicode for menu icon found on this page: https://graphemica.com/%E2%98%B0#html-entity-decimal -->
       <ul id="nav-list">
+        <% if(title !== 'Home') { %>
         <li class="<%- title === 'Create_budget' ? 'active-page' : '' %>">
           <a href="/create-budget">Create</a>
         </li>
         <li class="<%- title === 'My_budgets' ? 'active-page' : '' %>">
           <a href="/my-budgets">My budgets</a>
         </li>
+        <% } %>
         <li class="<%- title === 'Info' ? 'active-page' : '' %>">
           <a href="/info">Info</a>
         </li>
