@@ -21,8 +21,8 @@ function deleteSelectedBudgets(){
 const rows = Array.from(document.getElementsByClassName('budget-row'));
 
 rows.forEach(row => {
-    // Get the link to the budget instance from the last item
-    const link = row.childNodes[13].childNodes[0].href
+    // Get the link to the budget instance from the a tag with id 'edit-a-tag'
+    const link = Array.from(row.childNodes).find(child => child.childNodes[0]?.id === 'edit-a-tag').childNodes[0].href;
 
     // Add event listener to each child of the row, escept the first two
     row.childNodes.forEach((child,index) => {
