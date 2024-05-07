@@ -25,6 +25,7 @@
 }
 
 
+
 #tool-tip-text-mybudgets {
     margin-top: 100px;
     margin-right: 160px;
@@ -34,4 +35,14 @@
 #edit-button{
     height: 25px;
     width: 25px;
+}
+
+.checkbox{
+    width: 15px;
+    height: 15px;
+}
+
+.budget-row:hover{
+   cursor: pointer; 
+   background-color: rgba(0, 0, 0,0.05);
 }

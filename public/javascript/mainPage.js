@@ -28,6 +28,10 @@ function createExpenses() {
         // Value of the slider
         const value = document.createElement("div");
         value.textContent = Math.round(calculate_dkk(expense.part)) + " DKK";
+        const valueInput = document.createElement("input");
+        valueInput.value = Math.round(calculate_dkk(expense.part));
+
+
 
         // Delete expense tag
         const delete_image = document.createElement("img");
@@ -38,6 +42,8 @@ function createExpenses() {
 
         // Set class names for elements
         value.setAttribute("class", "show-value");
+        valueInput.setAttribute("class", "show-value");
+        valueInput.setAttribute("type", "number");
         circle.setAttribute("class", "circle tool-tip");
         expense_div.setAttribute("class", "expense_div");
         input_container.setAttribute("class", "input-container");
@@ -76,6 +82,63 @@ function createExpenses() {
             maxValue = surplusPercentage1 * budget.totalIncome + Number(input.value);
         })
 
+        value.addEventListener("click", () => {
+            value.replaceWith(valueInput);
+            valueInput.focus();
+        });
+
+        // Handles the user input
+        valueInput.addEventListener("input", (event) => {
+            let newValue = Number(event.target.value);
+            if (newValue > maxValue) {
+                newValue = maxValue;  // Clamp the value to the maximum
+            }
+
+            input.value = newValue;
+            valueInput.value = newValue;
+            value.textContent = Math.round(newValue) + " DKK";
+
+            const x = getSliderX(input);
+            const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
+            input.style.background = color;
+        });
+
+        // Handles if the user press enter
+        valueInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+            valueInput.replaceWith(value);
+            }
+        });
+
+        // Handles if the user clicks outside the input field
+        valueInput.addEventListener("blur", () => {
+            valueInput.replaceWith(value);
+        });
+
+        // handles the change event
+        valueInput.addEventListener("change", (event) => {
+            // Calculate part in relation to total income
+            const part = valueInput.value / budget.totalIncome;
+            // Set the expense part value
+            expense.part = part;
+
+            surplusPercentage1 =
+                1 - budget.expenses.reduce((prev, next) => prev + next.part, 0);
+
+            let newValue = Number(event.target.value);
+            if (newValue > maxValue) {
+                // Clamp the value to the maximum
+                newValue = maxValue;  
+            } 
+
+            input.value = newValue;
+            value.textContent = Math.round(newValue) + " DKK";
+
+            const x = getSliderX(input);
+            const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
+            input.style.background = color;
+        });
+
 
         input.addEventListener("input", (e) => {
             let newValue = Number(e.target.value);
@@ -88,6 +151,7 @@ function createExpenses() {
             }
 
             input.value = newValue;
+            valueInput.value = newValue;
             value.textContent = Math.round(newValue) + " DKK";
         });
 
@@ -106,13 +170,13 @@ function createExpenses() {
                 newValue = maxValue;  
             } 
 
+            input.value = newValue;
+            valueInput.value = newValue;
+            value.textContent = Math.round(newValue) + " DKK";
+
             const x = getSliderX(input);
             const color = `linear-gradient(90deg, #3c67f4 ${x}%, #ffffff ${x}%)`;
             input.style.background = color;
-
-            input.value = newValue;
-            value.textContent = Math.round(newValue) + " DKK";
-
         });
 
         delete_image.addEventListener("click", () => {

@@ -42,6 +42,7 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
       });
     } catch (error) {
       console.error("Error creating budget:", error);
+      res.sendStatus(400)
     }
   } else {
     try {
@@ -52,10 +53,11 @@ exports.create_budget_post = asyncHandler(async (req, res, next) => {
       });
     } catch (error) {
       console.error("Error creating budget:", error);
+      res.sendStatus(400)
     }
   }
 
-  res.redirect(200, '/my-budgets');
+  res.sendStatus(200);
 });
 
 exports.budget_remove_post = asyncHandler(async (req, res, next) => {

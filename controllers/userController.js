@@ -18,7 +18,7 @@ exports.login_post = [
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
 
-    var data = {
+    const data = {
       username: req.body.username,
       password: req.body.password,
     };
@@ -77,7 +77,7 @@ exports.signup_post = [
   asyncHandler(async (req, res, next) => {
     const errors = validationResult(req);
 
-    var newData = {
+    const newData = {
       newUsername: req.body.newUsername,
       newPassword: req.body.newPassword,
       repeatPassword: req.body.repeatPassword,
@@ -94,12 +94,16 @@ exports.signup_post = [
       errors.errors.push({ msg: "Username already taken" });
     }
 
+    let user;
+
     if (errors.isEmpty()) {
       try {
-        await User.create({
+        user = new User({
           username: newData.newUsername,
           password: newData.newPassword,
         });
+
+        await user.save();
       } catch (error) {
         console.error("Error creating user:", error);
         errors.errors.push({ msg: "Error adding user to database" });
@@ -112,7 +116,8 @@ exports.signup_post = [
         errors: errors.array(),
       });
     } else {
-      res.redirect("/login");
+      const userCookie = btoa(JSON.stringify({ id:user._id,  username: user.username }))
+      res.cookie("user_cookie", userCookie,  { maxAge: 9000000, encode: String }).redirect("/my-budgets");
     }
   }),
 ];
