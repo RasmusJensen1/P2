@@ -1,4 +1,5 @@
 let budgetFileData;
+const isUploaded = document.getElementById('is-uploaded')
 
 document.getElementById("fileToUpload").addEventListener("change", function(event) {
     const file = event.target.files[0];
@@ -7,6 +8,7 @@ document.getElementById("fileToUpload").addEventListener("change", function(even
 
     reader.onload = function(e) {
         budgetFileData = JSON.parse(e.target.result);
+        isUploaded.innerText = "File uploaded!";
     }
 
     reader.readAsText(file);

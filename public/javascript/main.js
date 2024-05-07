@@ -44,3 +44,13 @@ document.getElementById('menu-icon').addEventListener('click', () => {
         navList.style.display = 'block';
     }
 })
+
+const logo = document.getElementById('logo');
+
+logo.addEventListener('click', () => {
+    if(!loggedIn) {
+        window.location.href = "/";
+    } else {
+        window.location.href = "/my-budgets";
+    }
+})

@@ -21,6 +21,10 @@ body {
   color: black;
 }
 
+#logo:hover{
+  cursor: pointer;
+}
+
 nav {
   background-color: #fff;
   height: 85px;
